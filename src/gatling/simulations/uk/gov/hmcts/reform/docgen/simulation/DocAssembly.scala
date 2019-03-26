@@ -44,6 +44,6 @@ class DocAssembly extends Simulation {
     .protocols(httpConf)
     .maxDuration(1 minutes)
     .assertions(
-      global.responseTime.max.lessThan(Environment.maxResponseTime.toInt)
+      global.responseTime.max.lt(Environment.maxResponseTime.toInt)
     )
 }
