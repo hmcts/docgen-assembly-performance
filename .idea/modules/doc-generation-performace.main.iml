@@ -6,5 +6,6 @@
     <content url="file://$MODULE_DIR$/../../src/main" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-library:2.11.8" level="project" />
   </component>
 </module>

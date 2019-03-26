@@ -1,5 +1,6 @@
 plugins {
     id 'org.owasp.dependencycheck' version '3.2.1'
+    id "com.github.lkishalmi.gatling" version "3.0.1"
 }
 
 apply plugin: 'java'
@@ -17,4 +18,43 @@ dependencyCheck {
     // range of 0-10 fails the build, anything greater and it doesn't fail the build
     failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
     suppressionFile = 'dependency-check-suppressions.xml'
+
+
+}
+//
+//sourceSets {
+//    aat {
+//        scala {
+//            srcDirs = ['src/gatling/simulations']
+//        }
+//        compileClasspath += configurations.gatling
+//    }
+//}
+//
+//configurations {
+//    gatling
+//}
+//
+//gatling {
+//    logLevel = "INFO"
+//}
+//
+//task gatlingRunAAT(type: JavaExec) {
+//    group = 'gatling'
+//    description = 'Run gatling tests'
+//    new File("${buildDir}/reports/tests/performance").mkdirs()
+//    classpath = sourceSets.aat.runtimeClasspath + configurations.gatling
+//    main = "io.gatling.app.Gatling"
+//    args = ['-s', 'uk.gov.hmcts.reform.em.npa.performance.NpaLoad',
+//            '-rf', "${buildDir}/reports/tests/performance"
+//    ]
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'scala'
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.8'
 }

@@ -9,6 +9,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="doc-generation-performace.main" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-library:2.11.8" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="doc-generation-performace.main" />
 </module>

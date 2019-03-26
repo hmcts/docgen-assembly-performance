@@ -11,6 +11,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="doc-generation-performace" target="1.8" />
+      <module name="doc-generation-performace.aat" target="1.8" />
+      <module name="doc-generation-performace.gatling" target="1.8" />
       <module name="doc-generation-performace.main" target="1.8" />
       <module name="doc-generation-performace.test" target="1.8" />
     </bytecodeTargetLevel>

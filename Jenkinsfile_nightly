@@ -13,7 +13,7 @@ properties([
 @Library("Infrastructure") _
 
 def product = "doc-generation"
-def component = "cliamant"
+def component = "doc-assembly"
 
 withNightlyPipeline("java", product, component) {
     env.TEST_URL = params.URL_TO_TEST

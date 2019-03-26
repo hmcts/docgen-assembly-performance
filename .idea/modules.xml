@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/doc-generation-performace.iml" filepath="$PROJECT_DIR$/.idea/modules/doc-generation-performace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doc-generation-performace.gatling.iml" filepath="$PROJECT_DIR$/.idea/modules/doc-generation-performace.gatling.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/doc-generation-performace.main.iml" filepath="$PROJECT_DIR$/.idea/modules/doc-generation-performace.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/doc-generation-performace.test.iml" filepath="$PROJECT_DIR$/.idea/modules/doc-generation-performace.test.iml" />
     </modules>

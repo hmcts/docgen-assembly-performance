@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>uk.gov.hmcts.reform.docgen</groupId>
-	<artifactId>document-generation-performance</artifactId>
+	<groupId>DOCGENPT</groupId>
+	<artifactId>PerformanceTest_DocGen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
@@ -12,9 +12,10 @@
 		<scala.version>2.12.3</scala.version>
 		<encoding>UTF-8</encoding>
 
-		<gatling.version>2.3.0</gatling.version>
-
+		<gatling.version>3.0.3</gatling.version>
 		<scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
+		<gatling-plugin.version>3.0.1</gatling-plugin.version>
+
 	</properties>
 
 	<dependencyManagement>
@@ -72,7 +73,17 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+
 		<plugins>
+			<plugin>
+				<groupId>io.gatling</groupId>
+				<artifactId>gatling-maven-plugin</artifactId>
+				<version>${gatling-plugin.version}</version>
+				<configuration>
+					<simulationsFolder>${project.basedir}/src/gatling/simulations</simulationsFolder>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>net.alchim31.maven</groupId>
 				<artifactId>scala-maven-plugin</artifactId>
@@ -83,7 +94,7 @@
 						</goals>
 						<configuration>
 							<args>
-								<arg>-Ybackend:GenBCode</arg>
+								<!--<arg>-Ybackend:GenBCode</arg>-->
 								<arg>-Ydelambdafy:method</arg>
 								<arg>-target:jvm-1.8</arg>
 								<arg>-deprecation</arg>
