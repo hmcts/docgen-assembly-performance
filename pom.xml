@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>DOCGENPT</groupId>
-	<artifactId>PerformanceTest_DocGen</artifactId>
+	<groupId>uk.gov.hmcts.reform.docgen</groupId>
+	<artifactId>doc-gen-performance</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
@@ -40,6 +40,18 @@
 				<artifactId>scala-library</artifactId>
 				<version>${scala.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>io.gatling</groupId>
+				<artifactId>gatling-core</artifactId>
+				<version>${gatling.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.gatling</groupId>
+				<artifactId>gatling-http</artifactId>
+				<version>${gatling.version}</version>
+				<scope>test</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -59,6 +71,18 @@
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.gatling</groupId>
+			<artifactId>gatling-core</artifactId>
+			<version>${gatling.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.gatling</groupId>
+			<artifactId>gatling-http</artifactId>
+			<version>${gatling.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -81,6 +105,7 @@
 				<version>${gatling-plugin.version}</version>
 				<configuration>
 					<simulationsFolder>${project.basedir}/src/gatling/simulations</simulationsFolder>
+					<!--<simulationClass>uk.gov.hmcts.reform.docgen.simulation.DocAssembly</simulationClass>-->
 				</configuration>
 			</plugin>
 

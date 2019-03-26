@@ -13,7 +13,7 @@ object Recorder extends App {
 
 	val props = new RecorderPropertiesBuilder()
 		.simulationsFolder(IDEPathHelper.recorderOutputDirectory.toString)
-		.simulationPackage("uk.gov.hmcts.reform.em.anno.performance")
+		.simulationPackage("uk.gov.hmcts.reform.docgen.scenarios")
 		.resourcesFolder(IDEPathHelper.bodiesDirectory.toString)
 
 	GatlingRecorder.fromMap(props.build, Some(IDEPathHelper.recorderConfigFile))
