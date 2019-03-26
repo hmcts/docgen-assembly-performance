@@ -17,9 +17,10 @@ class DocAssembly extends Simulation {
     .headers(Headers.commonHeader)
 
   val docAssemblyScenarios = List (
-    PostGeneratePDFDocument.postGeneratePDFDoc.inject(
+    PostGeneratePDFDocument.postUser.inject(
       atOnceUsers(1),
-      rampUsersPerSec(1) to 100 during(300 seconds)
+      //rampUsersPerSec(1) to 100 during(300 seconds)
+      constantUsersPerSec(2) during (50 seconds)
     )
   )
 
