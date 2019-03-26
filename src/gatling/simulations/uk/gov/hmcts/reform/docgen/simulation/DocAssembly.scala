@@ -29,7 +29,9 @@ class DocAssembly extends Simulation {
   //    scn.inject(atOnceUsers(1))
   //  ).protocols(httpProtocol)
 
-  val httpConf = http.baseUrl(Environment.baseURL)
+  val httpConf = http
+    .proxy(Proxy("proxyout.reform.hmcts.net", 8080))
+    .baseUrl(Environment.baseURL)
     .headers(Headers.commonHeader)
 
   val docAssemblyScenarios = List (
