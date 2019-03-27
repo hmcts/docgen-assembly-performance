@@ -6,7 +6,7 @@ import uk.gov.hmcts.reform.docgen.util.TestUtil
 object PostGeneratePDFDocument {
 
   val bodyString = "{\"formPayload\":{},\"outputType\": \"PDF\",\"templateId\": \"RkwtRlJNLUFQUC1FTkctMDAwMDIuZG9jeA==\"}"
-  val testUtil = new TestUtil
+  val testUtil = new TestUtil();
 
   val postUserHttp = http("Generate PDF")
     .post("/api/template-renditions")
