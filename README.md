@@ -1,2 +1,2 @@
-# doc-generation-performace
+# doc-generation-performance
 Document Generation Performance Test Framework
