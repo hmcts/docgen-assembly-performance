@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.docgen.util;
 
-import org.apache.commons.lang3.Validate;
 import java.util.Properties;
 
 public class Env {
@@ -28,7 +27,7 @@ public class Env {
     }
 
     public static String require(String name) {
-        return Validate.notNull(System.getenv(name) == null ? defaults.getProperty(name) : System.getenv(name), "Environment variable `%s` is required", name);
+        return System.getenv(name) == null ? defaults.getProperty(name) : System.getenv(name);
     }
 
     public static String getIdamUrl() {
