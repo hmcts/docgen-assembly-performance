@@ -2,6 +2,8 @@ package uk.gov.hmcts.reform.docgen.util;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 
+import static io.restassured.specification.ProxySpecification.host;
+
 public class TestUtil {
 
     private final String idamAuth;
@@ -21,10 +23,12 @@ public class TestUtil {
             Env.getS2sMicroservice()
         );
 
+        RestAssured.proxy = host("proxyout.reform.hmcts.net").withPort(8080);
+        RestAssured.useRelaxedHTTPSValidation();
+
         idamAuth = idamHelper.getIdamToken();
         s2sAuth = s2sHelper.getS2sToken();
 
-        RestAssured.useRelaxedHTTPSValidation();
     }
 
     public RequestSpecification authRequest() {
