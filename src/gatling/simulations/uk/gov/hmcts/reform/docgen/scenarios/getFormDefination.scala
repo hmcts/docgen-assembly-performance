@@ -10,7 +10,7 @@ object getFormDefination {
   println("S2S Token-->:" + testUtil.getS2sAuth())
 
   val getUserHttp= http("Form Defination Request")
-    .get("/api/form-definitions/Q1YtQ01DLUdPUi1FTkctMDAwNC1VSS1UZXN0LmRvY3g=")
+    .get("/api/form-definitions/RkwtRlJNLUFQUC1FTkctMDAwMDIuZG9jeA==")
     .header("Authorization", testUtil.getIdamAuth())
     .header("ServiceAuthorization", testUtil.getS2sAuth())
     .header("Content-Type", "application/json")

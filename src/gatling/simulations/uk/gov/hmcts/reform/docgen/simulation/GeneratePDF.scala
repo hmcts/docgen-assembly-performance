@@ -4,6 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.scenarios.postGeneratePDF
 import simulations.uk.gov.hmcts.reform.docgen.util.{Environment, Headers}
+import uk.gov.hmcts.reform.docgen.scenarios.getFormDefination
 
 import scala.concurrent.duration._
 
@@ -16,17 +17,20 @@ class GeneratePDF extends Simulation {
     .headers(Headers.commonHeader)
 
   val docAssemblyScenarios = List (
+
+    getFormDefination.getRequest.inject(
+      rampUsers(1) during(1 seconds)
+    ),
+
     postGeneratePDF.postUser.inject(
-      //nothingFor(1 seconds),
-      rampUsers(1) during(10 seconds)
-      //constantUsersPerSec(25) during (10 seconds)
+      rampUsers(1) during(1 seconds)
     )
   )
 
 
   setUp(docAssemblyScenarios)
     .protocols(httpConf)
-    .maxDuration(2 minutes)
+    .maxDuration(1 minutes)
     .assertions(
       global.responseTime.max.lt(Environment.maxResponseTime.toInt)
     )
