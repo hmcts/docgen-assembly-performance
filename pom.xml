@@ -150,8 +150,8 @@
 				<artifactId>gatling-maven-plugin</artifactId>
 				<version>${gatling-plugin.version}</version>
 				<configuration>
-					<!--<simulationsFolder>${project.basedir}/src/gatling/simulations</simulationsFolder>-->
-					<simulationClass>uk.gov.hmcts.reform.docgen.simulation.TemplateDefination</simulationClass>
+					<simulationsFolder>${project.basedir}/src/gatling/simulations</simulationsFolder>
+					<!--<simulationClass>uk.gov.hmcts.reform.docgen.simulation.TemplateDefination</simulationClass>-->
 				</configuration>
 			</plugin>
 
