@@ -12,18 +12,19 @@ public class TestUtil {
     private final String s2sAuth;
     private static String file = "CV-CMC-GOR-ENG-0004-UI-Test.docx";
 
+
     public TestUtil() {
         IdamHelper idamHelper = new IdamHelper(
-            Env.getIdamUrl(),
-            Env.getOAuthClient(),
-            Env.getOAuthSecret(),
-            Env.getOAuthRedirect()
+                Env.getIdamUrl(),
+                Env.getOAuthClient(),
+                Env.getOAuthSecret(),
+                Env.getOAuthRedirect()
         );
 
         S2sHelper s2sHelper = new S2sHelper(
-            Env.getS2sUrl(),
-            Env.getS2sSecret(),
-            Env.getS2sMicroservice()
+                Env.getS2sUrl(),
+                Env.getS2sSecret(),
+                Env.getS2sMicroservice()
         );
 
         RestAssured.proxy = host("proxyout.reform.hmcts.net").withPort(8080);
@@ -36,9 +37,9 @@ public class TestUtil {
 
     public RequestSpecification authRequest() {
         return RestAssured
-            .given()
-            .header("Authorization", idamAuth)
-            .header("ServiceAuthorization", s2sAuth);
+                .given()
+                .header("Authorization", idamAuth)
+                .header("ServiceAuthorization", s2sAuth);
     }
 
     public String getIdamAuth() {

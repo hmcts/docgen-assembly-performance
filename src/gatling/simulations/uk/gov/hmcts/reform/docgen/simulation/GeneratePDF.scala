@@ -16,7 +16,7 @@ class GeneratePDF extends Simulation {
     .baseUrl(Environment.baseURL)
     .headers(Headers.commonHeader)
 
-  val docAssemblyScenarios = List (
+  val docGenScenarios = List (
 
     getFormDefination.getRequest.inject(
       rampUsers(1) during(1 seconds)
@@ -28,7 +28,7 @@ class GeneratePDF extends Simulation {
   )
 
 
-  setUp(docAssemblyScenarios)
+  setUp(docGenScenarios)
     .protocols(httpConf)
     .maxDuration(1 minutes)
     .assertions(
