@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.docgen.util;
 
+import java.util.Base64;
 import java.util.Properties;
 
 public class Env {
@@ -57,4 +58,5 @@ public class Env {
     public static String getS2sMicroservice() {
         return require("S2S_SERVICE_NAME");
     }
+
 }

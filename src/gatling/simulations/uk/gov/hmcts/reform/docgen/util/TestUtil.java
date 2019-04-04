@@ -2,12 +2,15 @@ package uk.gov.hmcts.reform.docgen.util;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.Base64;
+
 import static io.restassured.specification.ProxySpecification.host;
 
 public class TestUtil {
 
     private final String idamAuth;
     private final String s2sAuth;
+    private static String file = "CV-CMC-GOR-ENG-0004-UI-Test.docx";
 
     public TestUtil() {
         IdamHelper idamHelper = new IdamHelper(
@@ -44,5 +47,10 @@ public class TestUtil {
 
     public String getS2sAuth() {
         return s2sAuth;
+    }
+
+
+    public String getTemplateID() {
+        return Base64.getEncoder().encodeToString(TestUtil.file.getBytes());
     }
 }
