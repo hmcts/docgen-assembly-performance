@@ -3,11 +3,11 @@ package uk.gov.hmcts.reform.docgen.simulation
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.util.{Environment, Headers}
-import uk.gov.hmcts.reform.docgen.scenarios.getFormDefination
+import uk.gov.hmcts.reform.docgen.scenarios.getFormDefinition
 
 import scala.concurrent.duration._
 
-class TemplateDefination extends Simulation{
+class TemplateDefinition extends Simulation{
 
   val httpConf = http
     .proxy(Proxy("proxyout.reform.hmcts.net", 8080))
@@ -15,7 +15,7 @@ class TemplateDefination extends Simulation{
     .headers(Headers.commonHeader)
 
   val docAssemblyScenarios = List (
-    getFormDefination.getRequest.inject(
+    getFormDefinition.getRequest.inject(
       rampUsers(1) during(1 seconds)
     )
   )

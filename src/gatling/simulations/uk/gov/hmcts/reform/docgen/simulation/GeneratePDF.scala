@@ -4,7 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.scenarios.postGeneratePDF
 import simulations.uk.gov.hmcts.reform.docgen.util.{Environment, Headers}
-import uk.gov.hmcts.reform.docgen.scenarios.getFormDefination
+import uk.gov.hmcts.reform.docgen.scenarios.getFormDefinition
 
 import scala.concurrent.duration._
 
@@ -18,7 +18,7 @@ class GeneratePDF extends Simulation {
 
   val docGenScenarios = List (
 
-    getFormDefination.getRequest.inject(
+    getFormDefinition.getRequest.inject(
       rampUsers(1) during(1 seconds)
     ),
 

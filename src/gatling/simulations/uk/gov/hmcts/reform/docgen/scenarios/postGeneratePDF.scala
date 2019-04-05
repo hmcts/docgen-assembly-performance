@@ -16,6 +16,6 @@ object postGeneratePDF {
     .header("Content-Type", "application/json")
     .check(status is 200)
 
-  val postUser = scenario("Generate PDF Document")
+  val postUser = scenario("PDF Generation")
     .exec(postUserHttp)
 }
