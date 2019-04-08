@@ -8,7 +8,7 @@ object postGeneratePDF {
   val testUtil = new TestUtil();
   val bodyString = "{\"formPayload\":{},\"outputType\": \"PDF\",\"templateId\": \"RkwtRlJNLUFQUC1FTkctMDAwMDIuZG9jeA==\"}"
 
-  val postUserHttp = http("Generate PDF")
+  val postUserHttp = http("PDF Generation")
     .post("/api/template-renditions")
     .header("Authorization", testUtil.getIdamAuth())
     .header("ServiceAuthorization", testUtil.getS2sAuth())

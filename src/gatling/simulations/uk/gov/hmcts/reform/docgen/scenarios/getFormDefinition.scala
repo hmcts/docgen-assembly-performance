@@ -8,7 +8,6 @@ object getFormDefinition {
 
   println("IDAM Token-->:" + testUtil.getIdamAuth())
   println("S2S Token-->:" + testUtil.getS2sAuth())
-  println("Template ID-->::" + testUtil.getTemplateID)
 
   val getUserHttp= http("Form Definition")
     .get(s"/api/form-definitions/${testUtil.getTemplateID()}")
