@@ -1,2 +1,2 @@
-# doc-generation-performance
-Document Generation Performance Test Framework
+# docgen-assembly-performance
+Document Generation Assembly Performance Test Framework
