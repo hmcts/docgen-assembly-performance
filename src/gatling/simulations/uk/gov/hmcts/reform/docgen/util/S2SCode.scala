@@ -9,6 +9,7 @@ object  S2SCode {
   val S2SAuthToken =
     exec(http("S2S Auth Token")
       .post(Env.getS2sUrl+"/lease")
+      .header("Content-Type", "application/json")
       .body(StringBody(
         s"""{
        "microservice": "${Env.getS2sMicroservice}",
@@ -16,14 +17,14 @@ object  S2SCode {
         }"""
       ))
       .asJson
-      .header("Content-Type", "application/json")
-      .check(bodyString.saveAs("s2sToken")))
-      //.check(jsonPath("$..s2sToken").optional.saveAs("s2sToken")))
+      //.check(bodyString.saveAs("s2sToken")))
+      .check(jsonPath("$.s2sToken").optional.saveAs("s2sToken")))
 
-        .exec {
-          session =>
-            println("s2s Token-->::" + session("s2sToken"))
-            session
-        }
+      .exec {
+        session =>
+          //println("s2s Token-->::" + session("s2sToken").toString)
+          print("S2s::-->" + session.toString.indexOf("s2sToken"))
+          session
+      }
 
 }
