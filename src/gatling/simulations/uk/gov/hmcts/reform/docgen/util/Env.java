@@ -1,10 +1,8 @@
 package uk.gov.hmcts.reform.docgen.util;
 
-import java.util.Base64;
 import java.util.Properties;
 
 public class Env {
-
     static Properties defaults = new Properties();
 
     static {

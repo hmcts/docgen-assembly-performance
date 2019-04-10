@@ -1,30 +1,29 @@
 package uk.gov.hmcts.reform.docgen.util
-
-
+import com.warrenstrange.googleauth.GoogleAuthenticator
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
-
 object  S2SCode {
+  val otp: String = String.valueOf(new GoogleAuthenticator().getTotpPassword(Env.getS2sSecret))
 
   val S2SAuthToken =
-  exec(http("S2S Auth Token")
-  .post(Env.getS2sUrl+"/lease")
-  .header("Content-Type", "application/json")
-  .body(StringBody(
-  """{
-    "microservice": ${Env.getS2sMicroservice},
-    "oneTimePassword": "${otp}"
-  }"""
-  ))
-  .check(jsonPath("$..").saveAs("s2sToken")))
+    exec(http("S2S Auth Token")
+      .post(Env.getS2sUrl+"/lease")
+      .body(StringBody(
+        s"""{
+       "microservice": "${Env.getS2sMicroservice}",
+        "oneTimePassword": "${otp}"
+        }"""
+      ))
+      .asJson
+      .header("Content-Type", "application/json")
+      .check(bodyString.saveAs("s2sToken")))
+      //.check(jsonPath("$..s2sToken").optional.saveAs("s2sToken")))
 
-    .exec {
-      session =>
-        //println("this is a userid ....." + session("generatedemail").as[String])
-        println("this is access token....." + session("s2sToken").as[String])
-
-        session
-    }
+        .exec {
+          session =>
+            println("s2s Token-->::" + session("s2sToken"))
+            session
+        }
 
 }

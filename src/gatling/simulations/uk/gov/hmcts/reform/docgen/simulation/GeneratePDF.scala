@@ -19,12 +19,12 @@ class GeneratePDF extends Simulation {
   val docGenScenarios = List (
 
     getFormDefinition.getRequest.inject(
-      rampUsers(400) during(60 seconds)
+      rampUsers(1) during(60 seconds)
     ),
 
     postGeneratePDF.postUser.inject(
       nothingFor(1 second),
-      rampUsers(400) during(60 seconds)
+      rampUsers(1) during(60 seconds)
     )
   )
 

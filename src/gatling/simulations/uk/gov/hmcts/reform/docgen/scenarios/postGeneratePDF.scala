@@ -1,7 +1,8 @@
 package simulations.uk.gov.hmcts.reform.docgen.scenarios
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
-import uk.gov.hmcts.reform.docgen.util.TestUtil
+import uk.gov.hmcts.reform.docgen.util.uk.gov.hmcts.reform.docgen.util.IDAMCode
+import uk.gov.hmcts.reform.docgen.util.{S2SCode, TestUtil}
 
 object postGeneratePDF {
 
@@ -10,12 +11,14 @@ object postGeneratePDF {
 
   val postUserHttp = http("PDF Generation")
     .post("/api/template-renditions")
-    .header("Authorization", testUtil.getIdamAuth())
-    .header("ServiceAuthorization", testUtil.getS2sAuth())
+    .header("Authorization", "Bearer" + " ${accessToken}")
+    .header("ServiceAuthorization", "Bearer" + "${s2sToken}")
     .body(StringBody(bodyString))
     .header("Content-Type", "application/json")
     .check(status is 200)
 
   val postUser = scenario("PDF Generation")
+    .exec(IDAMCode.getIdamAuthCode)
+    .exec(S2SCode.S2SAuthToken)
     .exec(postUserHttp)
 }
