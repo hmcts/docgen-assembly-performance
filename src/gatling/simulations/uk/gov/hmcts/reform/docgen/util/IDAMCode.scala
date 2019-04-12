@@ -1,7 +1,4 @@
 package uk.gov.hmcts.reform.docgen.util
-
-package uk.gov.hmcts.reform.docgen.util
-
 import com.warrenstrange.googleauth.GoogleAuthenticator
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
@@ -30,7 +27,7 @@ object IDAMCode {
           .header("Content-Length", "0")
           .check(jsonPath("$..access_token").optional.saveAs("accessToken"))
           .check(status.is(200)))
-          .pause(5)//change back to 90
+          .pause(5)
       }
 
       .exec {

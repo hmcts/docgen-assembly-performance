@@ -1,8 +1,7 @@
 package simulations.uk.gov.hmcts.reform.docgen.scenarios
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
-import uk.gov.hmcts.reform.docgen.util.uk.gov.hmcts.reform.docgen.util.IDAMCode
-import uk.gov.hmcts.reform.docgen.util.{S2SCode, TestUtil}
+import uk.gov.hmcts.reform.docgen.util.{IDAMCode, S2SCode, TestUtil}
 
 object postGeneratePDF {
 
