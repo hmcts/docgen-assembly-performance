@@ -7,12 +7,12 @@ object getFormDefinition {
 
  val testUtil = new TestUtil()
 
-  val getUserHttp= http("Form Definition")
-    .get(s"/api/form-definitions/${testUtil.getTemplateID}")
-    .header("Authorization", "Bearer" + " ${accessToken}")
-    .header("ServiceAuthorization", "Bearer" + "${s2sToken}")
-    .header("Content-Type", "application/json")
-    .check(status is 200)
+ val getUserHttp= http("Form Definition")
+   .get(s"/api/form-definitions/${testUtil.getTemplateID}")
+   .header("Authorization", "Bearer" + " ${accessToken}")
+   .header("ServiceAuthorization", "Bearer" + "${s2sToken}")
+   .header("Content-Type", "application/json")
+   .check(status is 200)
 
  val getRequest = scenario("Template Definition")
    .exec(IDAMCode.getIdamAuthCode)

@@ -12,16 +12,25 @@ object  S2SCode {
       .header("Content-Type", "application/json")
       .body(StringBody(
         s"""{
-       "microservice": "${Env.getS2sMicroservice}"
+       "microservice": "${Env.getS2sMicroservice}",
         "oneTimePassword": "${otp}"
         }"""
       )).asJson
       .check(bodyString.saveAs("s2sToken")))
-     //.check(jsonPath("$..s2sToken").optional.saveAs("s2sToken")))
+      //.check(jsonPath("$.s2sToken").optional.saveAs("s2sToken")))
 
       .exec {
-        session =>
-          println("s2s Token-->::" + session("s2sToken"))
-          session
-      }
+      session =>
+        println("S2S token....." + session("s2sToken").as[String])
+        session
+    }
+
+
+  //      .exec {
+  //        session =>
+  //          println("s2s Token-->::" + session("s2sToken"))
+  //          session
+  //      }
+
+  //.exec(flattenMapIntoAttributes("${s2sToken}"))
 }
