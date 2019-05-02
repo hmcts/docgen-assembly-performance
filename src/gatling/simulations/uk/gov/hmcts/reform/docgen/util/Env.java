@@ -1,8 +1,10 @@
 package uk.gov.hmcts.reform.docgen.util;
 
+import java.util.Base64;
 import java.util.Properties;
 
 public class Env {
+    private static String file = "CV-CMC-GOR-ENG-0004-UI-Test.docx";
     static Properties defaults = new Properties();
 
     static {
@@ -55,6 +57,10 @@ public class Env {
 
     public static String getS2sMicroservice() {
         return require("S2S_SERVICE_NAME");
+    }
+
+    public String getTemplateID() {
+        return Base64.getEncoder().encodeToString(Env.file.getBytes());
     }
 
 }

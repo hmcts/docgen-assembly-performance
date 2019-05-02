@@ -3,8 +3,7 @@ import com.warrenstrange.googleauth.GoogleAuthenticator
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
-object IDAMCode {
-  val testUtil = new TestUtil()
+object IDAMHelper {
 
   private val USERNAME = "testytesttest@test.net"
   private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
@@ -21,7 +20,7 @@ object IDAMCode {
       .check(jsonPath("$..code").optional.saveAs("serviceauthcode")))
 
       .doIf(session => session.contains("serviceauthcode")) {
-        exec(http("SYS01_TX02_Oauth2Token")
+        exec(http("Oauth2Token")
           .post(Env.getIdamUrl + "/oauth2/token?grant_type=authorization_code&code=" + "${serviceauthcode}" + "&client_id="+Env.getOAuthClient+"&redirect_uri=" + Env.getOAuthRedirect + "&client_secret=" + Env.getOAuthSecret)
           .header("Content-Type", "application/x-www-form-urlencoded")
           .header("Content-Length", "0")
@@ -35,7 +34,5 @@ object IDAMCode {
           println("this is access token....." + session("accessToken").as[String])
           session
       }
-
-
 
 }
