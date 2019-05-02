@@ -1,5 +1,5 @@
 # docgen-assembly-performance
-Document Generation Assembly Performance Test Framework
+Docgen Assembly Performance Test Framework
 
 ## Build and run instructions
 1. Build
