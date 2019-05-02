@@ -17,14 +17,9 @@ object  S2SHelper {
         }"""
       )).asJson
       .check(bodyString.saveAs("s2sToken")))
-      //.check(jsonPath("$.s2sToken").optional.saveAs("s2sToken")))
       .exec {
-      session =>
-        println("S2S token::-->" + session("s2sToken").as[String])
-        println("")
-        session
-
-
-    }
-
+        session =>
+          println("S2S token::-->" + session("s2sToken").as[String])
+          session
+      }
 }

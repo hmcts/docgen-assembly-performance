@@ -31,7 +31,7 @@ object IDAMHelper {
 
       .exec {
         session =>
-          println("this is access token....." + session("accessToken").as[String])
+          //println("this is access token....." + session("accessToken").as[String])
           session
       }
 

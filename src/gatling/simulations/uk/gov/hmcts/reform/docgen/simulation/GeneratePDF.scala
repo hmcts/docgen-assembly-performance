@@ -23,7 +23,6 @@ class GeneratePDF extends Simulation {
     ),
 
     postGeneratePDF.postUser.inject(
-      nothingFor(1 second),
       rampUsers(1) during(60 seconds)
     )
   )

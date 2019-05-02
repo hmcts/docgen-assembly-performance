@@ -8,8 +8,8 @@ object getFormDefinition {
  val env = new Env()
  val getUserHttp= http("Form Definition")
    .get(s"/api/form-definitions/${env.getTemplateID}")
-   .header("Authorization", "Bearer" + " ${accessToken}")
-   .header("ServiceAuthorization", "Bearer" + "${s2sToken}")
+   .header("Authorization", "Bearer ${accessToken}")
+   .header("ServiceAuthorization", "Bearer ${s2sToken}")
    .header("Content-Type", "application/json")
    .check(status is 200)
 
@@ -17,6 +17,5 @@ object getFormDefinition {
    .exec(IDAMHelper.getIdamAuthCode)
    .exec(S2SHelper.S2SAuthToken)
    .exec(getUserHttp)
-
 
 }

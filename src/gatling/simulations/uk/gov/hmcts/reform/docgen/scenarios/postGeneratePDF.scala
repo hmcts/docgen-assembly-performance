@@ -9,8 +9,8 @@ object postGeneratePDF {
 
   val postUserHttp = http("PDF Generation")
     .post("/api/template-renditions")
-    .header("Authorization", "Bearer" + " ${accessToken}")
-    .header("ServiceAuthorization", "Bearer" + "${s2sToken}")
+    .header("Authorization", "Bearer ${accessToken}")
+    .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .body(StringBody(bodyString))
     .header("Content-Type", "application/json")
     .check(status is 200)
