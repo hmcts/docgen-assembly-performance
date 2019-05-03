@@ -16,10 +16,10 @@ object  S2SHelper {
         "oneTimePassword": "${otp}"
         }"""
       )).asJson
-      .check(bodyString.saveAs("s2sToken")))
+      .check(bodyString.saveAs("s2sToken"))).pause(3)
       .exec {
         session =>
-          println("S2S token::-->" + session("s2sToken").as[String])
+          //println("S2S token::-->" + session("s2sToken").as[String])
           session
       }
 }

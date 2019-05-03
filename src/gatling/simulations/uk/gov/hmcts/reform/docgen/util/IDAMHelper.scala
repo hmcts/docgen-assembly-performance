@@ -18,6 +18,7 @@ object IDAMHelper {
       .header("Content-Length", "0")
       .check(status.is(200))
       .check(jsonPath("$..code").optional.saveAs("serviceauthcode")))
+      .pause(3)
 
       .doIf(session => session.contains("serviceauthcode")) {
         exec(http("Oauth2Token")
