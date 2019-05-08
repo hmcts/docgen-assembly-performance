@@ -20,7 +20,7 @@ class PDFGeneration extends Simulation {
   val pdfGeneration = scenario("PDF Generation").exec(postGeneratePDF.postUser)
 
   setUp(
-    templateDefinition.inject(rampUsers(100) during (60 minutes)),
-    pdfGeneration.inject(rampUsers(100) during (60 minutes))
+    templateDefinition.inject(rampUsers(2) during (1 minutes)),
+    pdfGeneration.inject(rampUsers(2) during (1 minutes))
   ).protocols(httpConf)
 }
