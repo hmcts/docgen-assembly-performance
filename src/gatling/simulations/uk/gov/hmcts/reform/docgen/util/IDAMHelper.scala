@@ -2,12 +2,14 @@ package uk.gov.hmcts.reform.docgen.util
 import com.warrenstrange.googleauth.GoogleAuthenticator
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
+import simulations.uk.gov.hmcts.reform.docgen.util.Environment
 
 object IDAMHelper {
 
   private val USERNAME = "testytesttest@test.net"
   private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
   val otp: String = String.valueOf(new GoogleAuthenticator().getTotpPassword(Env.getS2sSecret))
+  val thinktime = Environment.thinkTime
 
 
   val getIdamAuthCode =
@@ -18,7 +20,7 @@ object IDAMHelper {
       .header("Content-Length", "0")
       .check(status.is(200))
       .check(jsonPath("$..code").optional.saveAs("serviceauthcode")))
-      .pause(3)
+      .pause(thinktime)
 
       .doIf(session => session.contains("serviceauthcode")) {
         exec(http("Oauth2Token")
@@ -27,7 +29,7 @@ object IDAMHelper {
           .header("Content-Length", "0")
           .check(jsonPath("$..access_token").optional.saveAs("accessToken"))
           .check(status.is(200)))
-          .pause(5)
+          .pause(thinktime)
       }
 
       .exec {

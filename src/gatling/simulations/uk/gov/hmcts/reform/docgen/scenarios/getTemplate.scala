@@ -3,10 +3,10 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import uk.gov.hmcts.reform.docgen.util.{Env, IDAMHelper, S2SHelper}
 
-object getFormDefinition {
+object getTemplate {
 
  val env = new Env()
- val getUserHttp= http("Form Definition")
+ val getUserHttp= http("Template Definition")
    .get(s"/api/form-definitions/${env.getTemplateID}")
    .header("Authorization", "Bearer ${accessToken}")
    .header("ServiceAuthorization", "Bearer ${s2sToken}")

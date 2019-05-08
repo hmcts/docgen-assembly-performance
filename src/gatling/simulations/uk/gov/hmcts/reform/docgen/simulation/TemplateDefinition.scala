@@ -3,7 +3,7 @@ package uk.gov.hmcts.reform.docgen.simulation
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.util.{Environment, Headers}
-import uk.gov.hmcts.reform.docgen.scenarios.getFormDefinition
+import uk.gov.hmcts.reform.docgen.scenarios.getTemplate
 
 import scala.concurrent.duration._
 
@@ -15,7 +15,7 @@ class TemplateDefinition extends Simulation{
     .headers(Headers.commonHeader)
 
   val docAssemblyScenarios = List (
-    getFormDefinition.getRequest.inject(
+    getTemplate.getRequest.inject(
       rampUsers(1) during(1 seconds)
     )
   )
