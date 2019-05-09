@@ -13,7 +13,7 @@ object IDAMHelper {
 
 
   val getIdamAuthCode =
-    exec(http("IDAM Token")
+    exec(http("TX010_EM_DA_IdamAuthCode")
       .post(Env.getIdamUrl+"/oauth2/authorize/?response_type=code&client_id="+ Env.getOAuthClient+"&redirect_uri=" + Env.getOAuthRedirect)
       .header("Content-Type", "application/x-www-form-urlencoded")
       .basicAuth(USERNAME,PASSWORD)
@@ -23,7 +23,7 @@ object IDAMHelper {
       .pause(thinktime)
 
       .doIf(session => session.contains("serviceauthcode")) {
-        exec(http("Oauth2Token")
+        exec(http("TX020_EM_DA_Oauth2Token")
           .post(Env.getIdamUrl + "/oauth2/token?grant_type=authorization_code&code=" + "${serviceauthcode}" + "&client_id="+Env.getOAuthClient+"&redirect_uri=" + Env.getOAuthRedirect + "&client_secret=" + Env.getOAuthSecret)
           .header("Content-Type", "application/x-www-form-urlencoded")
           .header("Content-Length", "0")
@@ -31,11 +31,4 @@ object IDAMHelper {
           .check(status.is(200)))
           .pause(thinktime)
       }
-
-      .exec {
-        session =>
-          //println("this is access token....." + session("accessToken").as[String])
-          session
-      }
-
 }

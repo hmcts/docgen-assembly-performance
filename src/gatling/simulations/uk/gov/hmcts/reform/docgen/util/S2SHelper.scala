@@ -9,7 +9,7 @@ object  S2SHelper {
   val thinktime = Environment.thinkTime
 
   val S2SAuthToken =
-    exec(http("S2S Token")
+    exec(http("TX030_EM_DA_S2S Token")
       .post(Env.getS2sUrl+"/lease")
       .header("Content-Type", "application/json")
       .body(StringBody(
@@ -19,9 +19,4 @@ object  S2SHelper {
         }"""
       )).asJson
       .check(bodyString.saveAs("s2sToken"))).pause(thinktime)
-      .exec {
-        session =>
-          //println("S2S token::-->" + session("s2sToken").as[String])
-          session
-      }
 }

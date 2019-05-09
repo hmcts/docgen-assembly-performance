@@ -18,13 +18,13 @@ class GeneratePDF extends Simulation {
   val docGenScenarios = List (
 
     postGeneratePDF.postUser.inject(
-      rampUsers(1) during(1 seconds)
+      rampUsers(100) during(10 minutes)
     )
   )
 
   setUp(docGenScenarios)
     .protocols(httpConf)
-    .maxDuration(2 minutes)
+    .maxDuration(60 minutes)
     .assertions(
       global.responseTime.max.lt(Environment.maxResponseTime.toInt)
     )
