@@ -2,6 +2,7 @@ package simulations.uk.gov.hmcts.reform.docgen.scenarios
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.util.Environment
+import uk.gov.hmcts.reform.docgen.scenarios.getTemplate
 import uk.gov.hmcts.reform.docgen.util.{IDAMHelper, S2SHelper}
 
 object postGeneratePDF {
@@ -18,6 +19,7 @@ object postGeneratePDF {
     .check(status is 200)
 
   val postUser = scenario("PDF Generation")
+    .exec((getTemplate.getRequest))
     .repeat(4) {
       pause(thinktime)
       exec(IDAMHelper.getIdamAuthCode)
