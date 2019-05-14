@@ -22,8 +22,8 @@ object postGeneratePDF {
     .exec((getTemplate.getRequest)).pause(5)
     .repeat(4) {
       pause(thinktime)
-      //exec(IDAMHelper.getIdamAuthCode)
-      //exec(S2SHelper.S2SAuthToken)
+      exec(IDAMHelper.getIdamAuthCode)
+      exec(S2SHelper.S2SAuthToken)
       exec(postUserHttp)
     }
     .pause(2950)
