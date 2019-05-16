@@ -7,7 +7,7 @@ object Environment {
   val maxResponseTime = scala.util.Properties.envOrElse("maxResponseTime", "500")
   val idamCookieName="SESSION_ID"
 
-  val baseURL = scala.util.Properties.envOrElse("baseURL", "https://dg-docassembly-aat.service.core-compute-aat.internal")
+  val baseURL = scala.util.Properties.envOrElse("baseURL", "https://dg-docassembly-sprod.service.core-compute-sprod.internal")
   val DOCMOSIS_URL = "https://docmosis-development.platform.hmcts.net/"
   val IDAM_WEB_URL = "https://idam.preprod.ccidam.reform.hmcts.net"
 

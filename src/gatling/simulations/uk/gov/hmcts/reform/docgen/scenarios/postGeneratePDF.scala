@@ -13,7 +13,8 @@ object postGeneratePDF {
   val postUserHttp = http("TX040_EM_DA_PDF_Generation")
     .post("/api/template-renditions")
     .header("Authorization", "Bearer ${accessToken}")
-    .header("ServiceAuthorization", "Bearer ${s2sToken}")
+    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
+    .header("ServiceAuthorization", "Bearer ${jwt}")
     .body(StringBody(bodyString))
     .header("Content-Type", "application/json")
     .check(status is 200)
@@ -21,11 +22,11 @@ object postGeneratePDF {
   val postUser = scenario("PDF Generation")
     .exec((getTemplate.getRequest)).pause(5)
     .repeat(4) {
-      pause(thinktime)
-      exec(IDAMHelper.getIdamAuthCode)
-      exec(S2SHelper.S2SAuthToken)
+     // pause(thinktime)
+//      exec(IDAMHelper.getIdamAuthCode)
+//      exec(S2SHelper.S2SAuthToken)
       exec(postUserHttp)
     }
-    .pause(2950)
+    //.pause(20)
 
 }

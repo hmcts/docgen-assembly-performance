@@ -5,7 +5,12 @@ import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.util.Environment
 
 object  S2SHelper {
+  //val authenticator: GoogleAuthenticator = new GoogleAuthenticator()
+  //val otpFeeder = Iterator.continually(Map("otp" -> authenticator.getTotpPassword(Env.getS2sSecret))
+
   val otp: String = String.valueOf(new GoogleAuthenticator().getTotpPassword(Env.getS2sSecret))
+  println( "One Time Password::-->\n" + otp)
+  println( "S2S Secreat:-->\n" + Env.getS2sSecret())
   val thinktime = Environment.thinkTime
 
   val S2SAuthToken =
@@ -18,5 +23,9 @@ object  S2SHelper {
         "oneTimePassword": "${otp}"
         }"""
       )).asJson
-      .check(bodyString.saveAs("s2sToken"))).pause(thinktime)
+      .check(bodyString.saveAs("s2sToken"))
+      .check(bodyString.saveAs("responseBody")))
+  exec { session => println("S2S Session" +session); session }
+  exec { session => println("S2S Responce Body::--\n>" + session("responseBody").as[String]); session}
+
 }

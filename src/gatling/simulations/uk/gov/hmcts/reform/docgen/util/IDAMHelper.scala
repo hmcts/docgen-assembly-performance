@@ -20,7 +20,7 @@ object IDAMHelper {
       .header("Content-Length", "0")
       .check(status.is(200))
       .check(jsonPath("$..code").optional.saveAs("serviceauthcode")))
-      .pause(thinktime)
+      .pause(2)
 
       .doIf(session => session.contains("serviceauthcode")) {
         exec(http("TX020_EM_DA_Oauth2Token")
@@ -29,6 +29,6 @@ object IDAMHelper {
           .header("Content-Length", "0")
           .check(jsonPath("$..access_token").optional.saveAs("accessToken"))
           .check(status.is(200)))
-          .pause(thinktime)
+          .pause(2)
       }
 }
