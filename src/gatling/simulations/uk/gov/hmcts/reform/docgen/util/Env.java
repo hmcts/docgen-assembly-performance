@@ -9,13 +9,13 @@ public class Env {
 
     static {
         defaults.setProperty("PROXY", "false");
-        defaults.setProperty("TEST_URL", "http://localhost:8080");
-        defaults.setProperty("IDAM_API_BASE_URI", "http://localhost:4501");
+        defaults.setProperty("TEST_URL", "");
+        defaults.setProperty("IDAM_API_BASE_URI", "http://idam-api-idam-sprod.service.core-compute-idam-sprod.internal");
         defaults.setProperty("OAUTH_CLIENT", "webshow");
-        defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "http://localhost:8080/oauth2redirect");
-        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "AAAAAAAAAAAAAAAA");
-        defaults.setProperty("S2S_BASE_URI", "http://localhost:4502");
-        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_S2S_TOKEN", "AAAAAAAAAAAAAAAA");
+        defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "https://em-show-aat.service.core-compute-aat.internal/oauth2/callback");
+        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "IL0GzT26MeityyHNbrwK8EDOmByLTBzk");
+        defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-sprod.service.core-compute-sprod.internal");
+        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_S2S_TOKEN", "ZTUJMGDXR4ATXB4O");
         defaults.setProperty("S2S_SERVICE_NAME", "em_gw");
     }
 
@@ -56,11 +56,14 @@ public class Env {
     }
 
     public static String getS2sMicroservice() {
+        System.out.println("getS2sMicroservice");
         return require("S2S_SERVICE_NAME");
     }
 
     public String getTemplateID() {
         return Base64.getEncoder().encodeToString(Env.file.getBytes());
     }
+
+
 
 }

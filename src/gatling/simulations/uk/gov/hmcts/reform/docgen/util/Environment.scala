@@ -1,5 +1,8 @@
 package simulations.uk.gov.hmcts.reform.docgen.util
 
+import uk.gov.hmcts.reform.docgen.util.Env
+
+
 object Environment {
   val httpConfig = scala.util.Properties.envOrElse("httpConfig", "http")
 
@@ -10,6 +13,8 @@ object Environment {
   val baseURL = scala.util.Properties.envOrElse("baseURL", "https://dg-docassembly-sprod.service.core-compute-sprod.internal")
   val DOCMOSIS_URL = "https://docmosis-development.platform.hmcts.net/"
   val IDAM_WEB_URL = "https://idam.preprod.ccidam.reform.hmcts.net"
+
+  //val otp: String = String.valueOf(new GoogleAuthenticator().getTotpPassword(Env.getS2sSecret))
 
   val minThinkTime = 12
   val maxThinkTime = 15

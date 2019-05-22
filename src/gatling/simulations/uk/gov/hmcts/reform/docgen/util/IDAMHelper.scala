@@ -1,5 +1,4 @@
 package uk.gov.hmcts.reform.docgen.util
-import com.warrenstrange.googleauth.GoogleAuthenticator
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.util.Environment
@@ -8,7 +7,6 @@ object IDAMHelper {
 
   private val USERNAME = "testytesttest@test.net"
   private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
-  val otp: String = String.valueOf(new GoogleAuthenticator().getTotpPassword(Env.getS2sSecret))
   val thinktime = Environment.thinkTime
 
 
