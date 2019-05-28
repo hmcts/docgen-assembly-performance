@@ -4,7 +4,7 @@ import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.scenarios.postGeneratePDF.postUserHttp
 import simulations.uk.gov.hmcts.reform.docgen.util.{Environment, Headers}
 import uk.gov.hmcts.reform.docgen.scenarios.getTemplate.getUserHttp
-import uk.gov.hmcts.reform.docgen.util.{Env, IDAMHelper, OTP, S2SHelper}
+import uk.gov.hmcts.reform.docgen.util.{Env, IDAMHelper,S2SHelper}
 
 import scala.concurrent.duration._
 

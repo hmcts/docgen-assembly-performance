@@ -5,7 +5,6 @@ import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.util.Environment
 import simulations.uk.gov.hmcts.reform.docgen.util
 import uk.gov.hmcts.reform.docgen.scenarios._
-import uk.gov.hmcts.reform.docgen.util.OTP.otpgen
 
 object  S2SHelper {
   val thinktime = Environment.thinkTime
