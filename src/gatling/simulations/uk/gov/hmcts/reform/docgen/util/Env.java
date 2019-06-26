@@ -10,14 +10,16 @@ public class Env {
     static {
         defaults.setProperty("PROXY", "false");
         defaults.setProperty("TEST_URL", "");
-        defaults.setProperty("IDAM_API_BASE_URI", "http://idam-api-idam-sprod.service.core-compute-idam-sprod.internal");
+        defaults.setProperty("IDAM_API_BASE_URI", "https://idam-api.aat.platform.hmcts.net");
         defaults.setProperty("OAUTH_CLIENT", "webshow");
         defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "https://em-show-aat.service.core-compute-aat.internal/oauth2/callback");
-        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "IL0GzT26MeityyHNbrwK8EDOmByLTBzk");
-        defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-sprod.service.core-compute-sprod.internal");
+        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "QfnbQkh2cvROJDe9tFE3WNfD4a0Q2w8Q");
+        defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal");
         defaults.setProperty("FUNCTIONAL_TEST_CLIENT_S2S_TOKEN", "ZTUJMGDXR4ATXB4O");
         defaults.setProperty("S2S_SERVICE_NAME", "em_gw");
     }
+
+
 
     public static String getUseProxy() {
         return require("PROXY");
