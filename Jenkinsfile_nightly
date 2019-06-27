@@ -28,11 +28,11 @@ def component = "Doc Generation"
 withNightlyPipeline("java", product, component) {
     env.IDAM_API_BASE_URI =params.IDAM_API_BASE_URI
     env.IDAM_WEBSHOW_WHITELIST =params.IDAM_WEBSHOW_WHITELIST
+    env.S2S_BASE_URI=params.S2S_BASE_URI
     env.FUNCTIONAL_TEST_CLIENT_S2S_TOKEN =params.FUNCTIONAL_TEST_CLIENT_S2S_TOKEN
     env.FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET =params.FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET
 
-    setVaultName('dg-docassembly')
-    loadVaultSecrets(secrets)
+
 
     enablePerformanceTest()
 
