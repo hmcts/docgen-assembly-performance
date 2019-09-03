@@ -3,8 +3,6 @@ import com.warrenstrange.googleauth.GoogleAuthenticator
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.util.Environment
-import simulations.uk.gov.hmcts.reform.docgen.util
-import uk.gov.hmcts.reform.docgen.scenarios._
 
 object  S2SHelper {
   val thinktime = Environment.thinkTime
@@ -21,19 +19,13 @@ object  S2SHelper {
 
   val S2SAuthToken =
 
-  exec {
-    session =>
-      println("this is a session for otp ....." + session("otpp"))
-      session
-
-  }
-          .exec(http("TX030_EM_DA_S2S Token")
+    exec(http("TX030_EM_DA_S2S Token")
       .post(Env.getS2sUrl+"/lease")
       .header("Content-Type", "application/json")
       .body(StringBody(
         s"""{
        "microservice": "${Env.getS2sMicroservice}",
-        "oneTimePassword": "${ otpp}"
+        "oneTimePassword": "${otpp}"
         }"""
       )).asJson
       .check(bodyString.saveAs("s2sToken"))
