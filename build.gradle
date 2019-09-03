@@ -37,6 +37,7 @@ dependencies {
 
     //compile group: 'com.warrenstrange', name: 'googleauth', version: '1.2.0'
     compile group: 'io.gatling', name: 'gatling-app', version: '3.1.1'
+    compile group: 'org.json', name: 'json' , version: '20180813'
 
     compile group: 'io.gatling', name: 'gatling-recorder', version: '3.1.1'
     compile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.1.1'
@@ -54,7 +55,7 @@ dependencies {
 gatling {
     toolVersion '3.1.1'
     scalaVersion '2.12.8'
-    simulations = [ 'uk.gov.hmcts.reform.docgen.simulation.GeneratePDF'
+    simulations = [ 'uk.gov.hmcts.reform.docgen.simulation.CreateAnnotationsTest'
     ]
 }
 
