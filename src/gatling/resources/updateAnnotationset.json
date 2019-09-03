@@ -1,0 +1,86 @@
+{
+  "annotations": [
+    {
+      "annotationSetId": "string",
+      "color": "string",
+      "comments": [
+        {
+          "annotationId": "string",
+          "content": "string",
+          "createdBy": "string",
+          "createdByDetails": {
+            "email": "string",
+            "forename": "string",
+            "surname": "string"
+          },
+          "createdDate": "2019-08-29T12:55:20.596Z",
+          "id": "string",
+          "lastModifiedBy": "string",
+          "lastModifiedByDetails": {
+            "email": "string",
+            "forename": "string",
+            "surname": "string"
+          },
+          "lastModifiedDate": "2019-08-29T12:55:20.596Z"
+        }
+      ],
+      "createdBy": "string",
+      "createdByDetails": {
+        "email": "string",
+        "forename": "string",
+        "surname": "string"
+      },
+      "createdDate": "2019-08-29T12:55:20.596Z",
+      "id": "string",
+      "lastModifiedBy": "string",
+      "lastModifiedByDetails": {
+        "email": "string",
+        "forename": "string",
+        "surname": "string"
+      },
+      "lastModifiedDate": "2019-08-29T12:55:20.596Z",
+      "page": 0,
+      "rectangles": [
+        {
+          "annotationId": "string",
+          "createdBy": "string",
+          "createdByDetails": {
+            "email": "string",
+            "forename": "string",
+            "surname": "string"
+          },
+          "createdDate": "2019-08-29T12:55:20.596Z",
+          "height": 0,
+          "id": "string",
+          "lastModifiedBy": "string",
+          "lastModifiedByDetails": {
+            "email": "string",
+            "forename": "string",
+            "surname": "string"
+          },
+          "lastModifiedDate": "2019-08-29T12:55:20.596Z",
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "type": "string"
+    }
+  ],
+  "createdBy": "string",
+  "createdByDetails": {
+    "email": "string",
+    "forename": "string",
+    "surname": "string"
+  },
+  "createdDate": "2019-08-29T12:55:20.597Z",
+  "documentId": "string",
+  "id": "string",
+  "lastModifiedBy": "string",
+  "lastModifiedByDetails": {
+    "email": "string",
+    "forename": "string",
+    "surname": "string"
+  },
+  "lastModifiedDate": "2019-08-29T12:55:20.597Z"
+}
