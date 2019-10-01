@@ -78,6 +78,7 @@ val getAnnoByDocId=
         // .body(StringBody(annotationsStructure)).asJson
         .body(ElFileBody("createannotationset.json")).asJson
         .check(status is 201))
+        .pause(10)
 
     }
 
@@ -100,7 +101,7 @@ val getAnnoByDocId=
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
         .header("Content-Type", "application/json")
         .check(jsonPath("$..annotationSetId").optional.saveAs("annotationSetId")))
-        .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
+
     }
     {
       exec(http("TX090_EM_AnnoSet_Create_200MB")
@@ -111,7 +112,7 @@ val getAnnoByDocId=
         // .body(StringBody(annotationsStructure)).asJson
         .body(ElFileBody("createannotationset.json")).asJson
         .check(status is 201))
-        .pause(100)
+        .pause(10)
 
     }
 
@@ -123,7 +124,7 @@ val getAnnoByDocId=
         .header("Content-Type", "application/json")
         //  .body(StringBody(annotationsStru))
         .body(ElFileBody("annotations.json")).asJson
-        .check(status is 201)).pause(2)
+        .check(status is 201))
     }
 
 
@@ -156,7 +157,7 @@ val getAnnoByDocId=
         // .body(StringBody(annotationsStructure)).asJson
         .body(ElFileBody("createannotationset.json")).asJson
         .check(status is 201))
-        .pause(100)
+        .pause(10)
     }
 
     .repeat(2500) {
@@ -167,7 +168,7 @@ val getAnnoByDocId=
         .header("Content-Type", "application/json")
         //  .body(StringBody(annotationsStru))
         .body(ElFileBody("annotations.json")).asJson
-        .check(status is 201)).pause(1)
+        .check(status is 201))
     }
 
   val annotationSet_1000MB = feed(annosets_200).exec(http("TX0130_EM_AnnoSet_Get_Status_1000MB")
@@ -209,9 +210,8 @@ val getAnnoByDocId=
         .header("Content-Type", "application/json")
         //  .body(StringBody(annotationsStru))
         .body(ElFileBody("annotations.json")).asJson
-        .check(status is 201)).pause(2)
+        .check(status is 201))
     }
-
 
 
 

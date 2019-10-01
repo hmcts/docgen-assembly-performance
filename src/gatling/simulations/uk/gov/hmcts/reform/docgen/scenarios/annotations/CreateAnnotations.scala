@@ -61,13 +61,13 @@ object CreateAnnotations {
     .get("/api/annotations/${annotationId}" )
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
-    .check(status is 200)).pause(20)
+    .check(status is 200)).pause(50)
 
   val getAnnotationsById_Large = feed(dataFeeder_large).exec(http("Get annotations by annotation Id")
     .get("/api/annotations/${annotationId}" )
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
-    .check(status is 200)).pause(20)
+    .check(status is 200)).pause(50)
 
 
 
