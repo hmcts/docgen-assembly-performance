@@ -1,0 +1,38 @@
+{
+  "case_details":{
+    "id":1549544720400525,
+    "jurisdiction":"PUBLICLAW",
+    "state":"1_OPEN",
+    "case_type_id":"CCD_BUNDLE_MVP_TYPE",
+    "case_data":{
+      "caseBundles":[
+        {
+          "value":{
+            "id":null,
+            "title":"Bundle title",
+            "description":"Test bundle",
+            "eligibleForStitching":"yes",
+            "stitchedDocument":null,
+            "documents":[
+              {
+                "value":{
+                  "name":"test document",
+                  "description":"description",
+                  "sortIndex":1,
+                  "sourceDocument":{
+                    "document_url":"%s",
+                    "document_filename":"fn",
+                    "document_binary_url":"%s/binary"
+                  }
+                }
+              }
+            ],
+            "fileName":"bundle-file-name.pdf",
+            "hasTableOfContents":"yes",
+            "hasCoversheets":"yes"
+          }
+        }
+      ]
+    }
+  }
+}
