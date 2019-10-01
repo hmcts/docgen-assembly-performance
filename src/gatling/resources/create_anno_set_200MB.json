@@ -1,15 +1,5 @@
 [
-  {
-    "caseId": 1569542111421240,
-    "documentId": "03c082cb-bb98-4dfd-b7ea-4e2c82d8f019",
-    "annotationSetId": "cea9b2e6-2e56-4857-987e-9f7a476e106d"
-  },
-  {
-    "caseId": 1569542099870540,
-    "documentId": "4cfa7514-68de-44bd-8482-ba26eb2c17e2",
-    "annotationSetId": "87ea9b3b-9154-4591-bc6c-d2554457a048"
-  },
-  {
+    {
     "caseId": 1569542094116260,
     "documentId": "5262549e-4722-4b9d-a28a-34e399318221",
     "annotationSetId": "7a1f0101-f2e3-4c42-abd0-0eba572d442d"
