@@ -2,7 +2,8 @@ package uk.gov.hmcts.reform.docgen.scenarios.annotations
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
-import uk.gov.hmcts.reform.docgen.scenarios.annotations.CreateAnnotations.dataFeeder_large
+import uk.gov.hmcts.reform.docgen.scenarios.annotations.CreateAnnotations.dataFeeder_large_create
+
 
 
 object CreateAnnotationsSet {
@@ -117,7 +118,7 @@ val getAnnoByDocId=
     }
 
     .repeat(1000) {
-      feed(dataFeeder_large).exec(http("TX02_EM_ANNT_Create_Annotations_Large")
+      feed(dataFeeder_large_create).exec(http("TX02_EM_ANNT_Create_Annos_Large_200MB")
         .post("/api/annotations")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -146,7 +147,7 @@ val getAnnoByDocId=
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
         .header("Content-Type", "application/json")
         .check(jsonPath("$..annotationSetId").optional.saveAs("annotationSetId")))
-        .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
+       // .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
     }
     {
       exec(http("TX120_EM_AnnoSet_Create_500MB")
@@ -160,8 +161,8 @@ val getAnnoByDocId=
         .pause(10)
     }
 
-    .repeat(2500) {
-      feed(dataFeeder_large).exec(http("TX02_EM_ANNT_Create_Annotations_Large")
+    .repeat(2000) {
+      feed(dataFeeder_large_create).exec(http("TX02_EM_ANNT_Create_Annos_Large_500MB")
         .post("/api/annotations")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -171,7 +172,7 @@ val getAnnoByDocId=
         .check(status is 201))
     }
 
-  val annotationSet_1000MB = feed(annosets_200).exec(http("TX0130_EM_AnnoSet_Get_Status_1000MB")
+  val annotationSet_1000MB = feed(annosets_1000).exec(http("TX0130_EM_AnnoSet_Get_Status_1000MB")
     .get("/api/annotation-sets/filter?documentId=${documentId}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
@@ -200,10 +201,10 @@ val getAnnoByDocId=
         // .body(StringBody(annotationsStructure)).asJson
         .body(ElFileBody("createannotationset.json")).asJson
         .check(status is 201))
-        .pause(100)
+        .pause(10)
     }
-    .repeat(5000) {
-      feed(dataFeeder_large).exec(http("TX02_EM_ANNT_Create_Annotations_Large")
+    .repeat(3000) {
+      feed(dataFeeder_large_create).exec(http("TX02_EM_ANNT_Create_Annos_Large_1000MB")
         .post("/api/annotations")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")

@@ -44,7 +44,7 @@ class CreateAnnotationsTest extends Simulation {
 	    	.repeat(3) {
 			exec(createAnnotationHttp_Large_Files).pause(5)*/
 		//}
-	val createAnnotationsScn_Small = scenario("Create Annotations For Small Docs").feed(RandomNumberGeneration.numberfeed)
+	val createAnnotationsScn_Small = scenario("Create Annotations For Small Docs")
 		.exec(IDAMHelper.getIdamAuthCode)
 		.exec( S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
@@ -114,13 +114,12 @@ class CreateAnnotationsTest extends Simulation {
 			rampUsers(630) during (55 minutes)),
 
 		getAnnotationbyIdScn_Large.inject(
-			nothingFor(180 seconds),
-			rampUsers(150) during (55 minutes)),
+			nothingFor(120 seconds),
+			rampUsers(150) during (58 minutes)),
 
 		getAnnotationbyIdScn_Small.inject(
-			nothingFor(180 seconds),
-			rampUsers(330) during (55 minutes)),
-
+			nothingFor(120 seconds),
+			rampUsers(330) during (58 minutes))
 	)
 		.protocols(httpProtocol)
 		.maxDuration(65 minutes)
