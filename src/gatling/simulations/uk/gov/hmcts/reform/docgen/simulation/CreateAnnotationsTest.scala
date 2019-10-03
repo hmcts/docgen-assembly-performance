@@ -3,9 +3,9 @@ package uk.gov.hmcts.reform.docgen.simulation
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import simulations.uk.gov.hmcts.reform.docgen.util.Environment
-import uk.gov.hmcts.reform.docgen.feed.{CreateResourceAccess, RandomNumberGeneration}
-import uk.gov.hmcts.reform.docgen.scenarios.annotations.CreateAnnotations.{getAnnotationsById_Small,getAnnotationsById_Large,createAnnotationHttp_Large_Files, createAnnotationHttp_Small_Files, getAnnotationsHttp}
-import uk.gov.hmcts.reform.docgen.scenarios.annotations.CreateAnnotationsSet.{annotationSets,deleteAnnotationSetHttp, getAnnoByDocId, annotationSet_200MB,annotationSet_500MB,annotationSet_1000MB}
+import uk.gov.hmcts.reform.docgen.feed.CreateResourceAccess
+import uk.gov.hmcts.reform.docgen.scenarios.annotations.CreateAnnotations._
+import uk.gov.hmcts.reform.docgen.scenarios.annotations.CreateAnnotationsSet._
 import uk.gov.hmcts.reform.docgen.scenarios.annotations.DeleteAnnotations.deleteAnnotationHttp
 import uk.gov.hmcts.reform.docgen.util.{IDAMHelper, S2SHelper}
 
@@ -13,13 +13,13 @@ import scala.concurrent.duration._
 
 class CreateAnnotationsTest extends Simulation {
 	val intArray = Array(3,5,10)
-	val dataFeeder= csv("feeder_large.csv").circular
+	val dataFeeder= csv("feeder_large_reader.csv").circular
 
 	val httpProtocol = http
 		.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
 		.baseUrl(Environment.annotationURL)
 
-	val createAnnotationSetScn = scenario("create  nnotation set")
+	val createAnnotationSetScn = scenario("create  Annotation set")
   	.feed(CreateResourceAccess.feed).feed(dataFeeder)
 		.exec(IDAMHelper.getIdamAuthCode)
 		.exec( S2SHelper.getOTP)
@@ -30,7 +30,7 @@ class CreateAnnotationsTest extends Simulation {
 		.exec(createAnnotationHttp_Large_Files)
 		//.exec(getAnnotationsHttp)
 
-	val createAnnotationsScn_Large = scenario("Create Annotations for large Docs").feed(RandomNumberGeneration.numberfeed)
+	val createAnnotationsScn_Large_ExistingAnnos = scenario("Create Annotations for large Docs")
   			.exec(IDAMHelper.getIdamAuthCode)
 		.exec( S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
@@ -39,19 +39,35 @@ class CreateAnnotationsTest extends Simulation {
   	33d->exec(annotationSet_500MB),
 	  33d ->	exec(annotationSet_1000MB)
 	)
-	  	/*//.exec(createAnnotationSetHttp)
-	  	.pause(5)
-	    	.repeat(3) {
-			exec(createAnnotationHttp_Large_Files).pause(5)*/
-		//}
-	val createAnnotationsScn_Small = scenario("Create Annotations For Small Docs")
+	val createAnnotationsScn_Large_NewAnnos = scenario("Create Annotations for large Docs for new annos")
+		.exec(IDAMHelper.getIdamAuthCode)
+		.exec( S2SHelper.getOTP)
+		.exec(S2SHelper.S2SAuthToken)
+		.randomSwitch(
+			34d ->	exec(annotationSet_200MB_newannoset),
+			33d->exec(annotationSet_500MB_newannosets),
+			33d ->	exec(annotationSet_1000MB_newannosets)
+		)
+
+	val createAnnotationsScn_Small_ExistingAnnoSets = scenario("Create Annotations For Small Docs")
 		.exec(IDAMHelper.getIdamAuthCode)
 		.exec( S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
 		.exec(annotationSets)
 		//.exec(createAnnotationSetHttp)
 		.pause(5)
-		.repeat(10) {
+		.repeat(20) {
+			exec(createAnnotationHttp_Small_Files).pause(5)
+		}
+
+	val createAnnotationsScn_Small_NewAnnoSets = scenario("Create Annotations For Small Docs for new Annosets")
+		.exec(IDAMHelper.getIdamAuthCode)
+		.exec( S2SHelper.getOTP)
+		.exec(S2SHelper.S2SAuthToken)
+		.exec(annotationSets_newannoset)
+		//.exec(createAnnotationSetHttp)
+		.pause(5)
+		.repeat(20) {
 			exec(createAnnotationHttp_Small_Files).pause(5)
 		}
 
@@ -106,12 +122,19 @@ class CreateAnnotationsTest extends Simulation {
 
 	setUp(
 
-		createAnnotationsScn_Large.inject(
-			rampUsers(90) during (55 minutes)),
+		createAnnotationsScn_Large_ExistingAnnos.inject(
+			rampUsers(48) during (55 minutes)),
 
-		createAnnotationsScn_Small.inject(
+		createAnnotationsScn_Large_NewAnnos.inject(
+			rampUsers(48) during (55 minutes)),
+
+		createAnnotationsScn_Small_ExistingAnnoSets.inject(
 			nothingFor(60 seconds),
-			rampUsers(630) during (55 minutes)),
+			rampUsers(320) during (55 minutes)),
+
+		createAnnotationsScn_Small_NewAnnoSets.inject(
+			nothingFor(60 seconds),
+			rampUsers(320) during (55 minutes)),
 
 		getAnnotationbyIdScn_Large.inject(
 			nothingFor(120 seconds),

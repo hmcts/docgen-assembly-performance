@@ -15,7 +15,11 @@ object CreateAnnotationsSet {
   val annosets_200 = jsonFile("create_anno_set_200MB.json").circular
   val annosets_500 = jsonFile("create_anno_set_500MB.json").circular
   val annosets_1000 = jsonFile("create_anno_set_1000MB.json").circular
-  val annosets_small = jsonFile("documentIds.json").circular
+  val annosets_small = jsonFile("read_new_annosets_smalldocs.json").circular
+  val annosets_200_new = jsonFile("create_anno_set_200MB_new.json").circular
+  val annosets_500_new = jsonFile("create_anno_set_500MB_new.json").circular
+  val annosets_1000_new = jsonFile("create_anno_set_1000MB_new.json").circular
+  val annosets_small_new = jsonFile("create_new_annosets_smalldocs.json").circular
 
 
   //println("document id "+documentId)
@@ -50,7 +54,7 @@ val getAnnoByDocId=
     .check(jsonPath("$..annotationSetId").saveAs("annotationSetId1")))
     .exec { session => println("thi is test "+session("annotationSetId1").as[String]); session}
 
-  val annotationSets = feed(annosets_small).exec(http("TX040_EM_AnnoSet_Get_Status")
+  val annotationSets = feed(annosets_small).exec(http("AN04_010_SmallDocs_GetStatus")
     .get("/api/annotation-sets/filter?documentId=${documentId}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
@@ -61,7 +65,7 @@ val getAnnoByDocId=
     .doIfOrElse( session => session("httpStatus").as[String].matches("200"))
     {
       //feed(feeder_json)
-      exec(http("TX050_EM_AnnoSet_Get")
+      exec(http("AN04_020_SmallDocs_GetAnnotaionSet")
         .get("/api/annotation-sets/filter?documentId=${documentId}")
         // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
         .header("Authorization", "Bearer ${accessToken}")
@@ -71,7 +75,7 @@ val getAnnoByDocId=
         .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
     }
     {
-      exec(http("TX060_EM_AnnoSet_Create")
+      exec(http("AN04_030_SmallDocs_CreateAnnotationSet")
         .post("/api/annotation-sets/")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -83,8 +87,7 @@ val getAnnoByDocId=
 
     }
 
-
-  val annotationSet_200MB = feed(annosets_200).exec(http("TX070_EM_AnnoSet_Get_Status_200MB")
+  val annotationSets_newannoset = feed(annosets_small_new).exec(http("AN09_010_SmallDocs_GetStatus_NewAnnoSet")
     .get("/api/annotation-sets/filter?documentId=${documentId}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
@@ -95,7 +98,40 @@ val getAnnoByDocId=
     .doIfOrElse( session => session("httpStatus").as[String].matches("200"))
     {
       //feed(feeder_json)
-      exec(http("TX080_EM_AnnoSet_Get_200MB")
+      exec(http("AN09_020_SmallDocs_GetAnnotaionSet_NewAnnoSet")
+        .get("/api/annotation-sets/filter?documentId=${documentId}")
+        // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        .check(jsonPath("$..annotationSetId").optional.saveAs("annotationSetId")))
+        .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
+    }
+    {
+      exec(http("AN09_030_SmallDocs_CreateAnnotationSet_NewAnnoSet")
+        .post("/api/annotation-sets/")
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        // .body(StringBody(annotationsStructure)).asJson
+        .body(ElFileBody("createannotationset.json")).asJson
+        .check(status is 201))
+        .pause(10)
+
+    }
+
+  val annotationSet_200MB = feed(annosets_200).exec(http("AN01_010_200Pages_GetStatus")
+    .get("/api/annotation-sets/filter?documentId=${documentId}")
+    // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+    .header("Authorization", "Bearer ${accessToken}")
+    .header("ServiceAuthorization", "Bearer ${s2sToken}")
+    .header("Content-Type", "application/json")
+    .check(status.in(200,404))
+    .check(status.saveAs("httpStatus")))
+    .doIfOrElse( session => session("httpStatus").as[String].matches("200"))
+    {
+      //feed(feeder_json)
+      exec(http("AN01_020_200Pages_GetAnnotaionSet")
         .get("/api/annotation-sets/filter?documentId=${documentId}")
         // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
         .header("Authorization", "Bearer ${accessToken}")
@@ -105,7 +141,7 @@ val getAnnoByDocId=
 
     }
     {
-      exec(http("TX090_EM_AnnoSet_Create_200MB")
+      exec(http("AN01_030_200Pages_CreateAnnotationSet")
         .post("/api/annotation-sets/")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -118,7 +154,7 @@ val getAnnoByDocId=
     }
 
     .repeat(1000) {
-      feed(dataFeeder_large_create).exec(http("TX02_EM_ANNT_Create_Annos_Large_200MB")
+      feed(dataFeeder_large_create).exec(http("AN01_040_200Pages_CreateAnnotation")
         .post("/api/annotations")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -129,7 +165,7 @@ val getAnnoByDocId=
     }
 
 
-  val annotationSet_500MB = feed(annosets_500).exec(http("TX0100_EM_AnnoSet_Get_Status_500MB")
+  val annotationSet_500MB = feed(annosets_500).exec(http("AN02_010_500Pages_GetStatus")
     .get("/api/annotation-sets/filter?documentId=${documentId}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
@@ -140,7 +176,7 @@ val getAnnoByDocId=
     .doIfOrElse( session => session("httpStatus").as[String].matches("200"))
     {
       //feed(feeder_json)
-      exec(http("TX110_EM_AnnoSet_Get_500MB")
+      exec(http("AN02_020_500Pages_GetAnnotaionSet")
         .get("/api/annotation-sets/filter?documentId=${documentId}")
         // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
         .header("Authorization", "Bearer ${accessToken}")
@@ -150,7 +186,7 @@ val getAnnoByDocId=
        // .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
     }
     {
-      exec(http("TX120_EM_AnnoSet_Create_500MB")
+      exec(http("AN02_030_500Pages_CreateAnnotationSet")
         .post("/api/annotation-sets/")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -162,7 +198,7 @@ val getAnnoByDocId=
     }
 
     .repeat(2000) {
-      feed(dataFeeder_large_create).exec(http("TX02_EM_ANNT_Create_Annos_Large_500MB")
+      feed(dataFeeder_large_create).exec(http("AN02_040_500Pages_CreateAnnotation")
         .post("/api/annotations")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -172,7 +208,7 @@ val getAnnoByDocId=
         .check(status is 201))
     }
 
-  val annotationSet_1000MB = feed(annosets_1000).exec(http("TX0130_EM_AnnoSet_Get_Status_1000MB")
+  val annotationSet_1000MB = feed(annosets_1000).exec(http("AN03_010_1000Pages_GetStatus")
     .get("/api/annotation-sets/filter?documentId=${documentId}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
@@ -183,7 +219,7 @@ val getAnnoByDocId=
     .doIfOrElse( session => session("httpStatus").as[String].matches("200"))
     {
       //feed(feeder_json)
-      exec(http("TX0140_EM_AnnoSet_Get_1000MB")
+      exec(http("AN03_020_1000Pages_GetAnnotaionSet")
         .get("/api/annotation-sets/filter?documentId=${documentId}")
         // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
         .header("Authorization", "Bearer ${accessToken}")
@@ -193,7 +229,7 @@ val getAnnoByDocId=
         .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
     }
     {
-      exec(http("TX0150_EM_AnnoSet_Create_1000MB")
+      exec(http("AN01_030_1000Pages_CreateAnnotationSet")
         .post("/api/annotation-sets/")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -204,7 +240,136 @@ val getAnnoByDocId=
         .pause(10)
     }
     .repeat(3000) {
-      feed(dataFeeder_large_create).exec(http("TX02_EM_ANNT_Create_Annos_Large_1000MB")
+      feed(dataFeeder_large_create).exec(http("AN03_040_1000Pages_CreateAnnotation")
+        .post("/api/annotations")
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        //  .body(StringBody(annotationsStru))
+        .body(ElFileBody("annotations.json")).asJson
+        .check(status is 201))
+    }
+  val annotationSet_200MB_newannoset = feed(annosets_200_new).exec(http("AN05_010_200Pages_GetStatus_NewAnnoSet")
+    .get("/api/annotation-sets/filter?documentId=${documentId}")
+    // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+    .header("Authorization", "Bearer ${accessToken}")
+    .header("ServiceAuthorization", "Bearer ${s2sToken}")
+    .header("Content-Type", "application/json")
+    .check(status.in(200,404))
+    .check(status.saveAs("httpStatus")))
+    .doIfOrElse( session => session("httpStatus").as[String].matches("200"))
+    {
+      //feed(feeder_json)
+      exec(http("AN05_020_200Pages_GetAnnotaionSet_NewAnnoset")
+        .get("/api/annotation-sets/filter?documentId=${documentId}")
+        // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        .check(jsonPath("$..annotationSetId").optional.saveAs("annotationSetId")))
+
+    }
+    {
+      exec(http("AN05_030_200Pages_CreateAnnotationSet_NewAnnoSet")
+        .post("/api/annotation-sets/")
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        // .body(StringBody(annotationsStructure)).asJson
+        .body(ElFileBody("createannotationset.json")).asJson
+        .check(status is 201))
+        .pause(10)
+
+    }
+
+    .repeat(1000) {
+      feed(dataFeeder_large_create).exec(http("AN05_040_200Pages_CreateAnnotation_NewSet")
+        .post("/api/annotations")
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        //  .body(StringBody(annotationsStru))
+        .body(ElFileBody("annotations.json")).asJson
+        .check(status is 201))
+    }
+
+
+  val annotationSet_500MB_newannosets = feed(annosets_500_new).exec(http("AN06_010_500Pages_GetStatus_NewAnnoSet")
+    .get("/api/annotation-sets/filter?documentId=${documentId}")
+    // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+    .header("Authorization", "Bearer ${accessToken}")
+    .header("ServiceAuthorization", "Bearer ${s2sToken}")
+    .header("Content-Type", "application/json")
+    .check(status.in(200,404))
+    .check(status.saveAs("httpStatus")))
+    .doIfOrElse( session => session("httpStatus").as[String].matches("200"))
+    {
+      //feed(feeder_json)
+      exec(http("AN06_020_500Pages_GetAnnotaionSet_NewAnnoSet")
+        .get("/api/annotation-sets/filter?documentId=${documentId}")
+        // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        .check(jsonPath("$..annotationSetId").optional.saveAs("annotationSetId")))
+      // .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
+    }
+    {
+      exec(http("AN06_030_500Pages_CreateAnnotationSet_NewAnnoSet")
+        .post("/api/annotation-sets/")
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        // .body(StringBody(annotationsStructure)).asJson
+        .body(ElFileBody("createannotationset.json")).asJson
+        .check(status is 201))
+        .pause(10)
+    }
+
+    .repeat(2000) {
+      feed(dataFeeder_large_create).exec(http("AN06_040_500Pages_CreateAnnotation_NewAnnoSet")
+        .post("/api/annotations")
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        //  .body(StringBody(annotationsStru))
+        .body(ElFileBody("annotations.json")).asJson
+        .check(status is 201))
+    }
+
+  val annotationSet_1000MB_newannosets = feed(annosets_1000_new).exec(http("AN07_010_1000Pages_GetStatus_NewAnnoSet")
+    .get("/api/annotation-sets/filter?documentId=${documentId}")
+    // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+    .header("Authorization", "Bearer ${accessToken}")
+    .header("ServiceAuthorization", "Bearer ${s2sToken}")
+    .header("Content-Type", "application/json")
+    .check(status.in(200,404))
+    .check(status.saveAs("httpStatus")))
+    .doIfOrElse( session => session("httpStatus").as[String].matches("200"))
+    {
+      //feed(feeder_json)
+      exec(http("AN07_020_1000Pages_GetAnnotaionSet_NewAnnoSet")
+        .get("/api/annotation-sets/filter?documentId=${documentId}")
+        // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        .check(jsonPath("$..annotationSetId").optional.saveAs("annotationSetId")))
+        .exec { session => println("hey this is it"+session("annotationSetId").as[String]); session}
+    }
+    {
+      exec(http("AN07_030_1000Pages_CreateAnnotationSet_NewAnnoSet")
+        .post("/api/annotation-sets/")
+        .header("Authorization", "Bearer ${accessToken}")
+        .header("ServiceAuthorization", "Bearer ${s2sToken}")
+        .header("Content-Type", "application/json")
+        // .body(StringBody(annotationsStructure)).asJson
+        .body(ElFileBody("createannotationset.json")).asJson
+        .check(status is 201))
+        .pause(10)
+    }
+    .repeat(3000) {
+      feed(dataFeeder_large_create).exec(http("AN07_040_1000Pages_CreateAnnotation_NewAnnoSet")
         .post("/api/annotations")
         .header("Authorization", "Bearer ${accessToken}")
         .header("ServiceAuthorization", "Bearer ${s2sToken}")
