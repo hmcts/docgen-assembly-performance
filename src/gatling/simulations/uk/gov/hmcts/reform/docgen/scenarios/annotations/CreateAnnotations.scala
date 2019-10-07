@@ -7,8 +7,6 @@ import simulations.uk.gov.hmcts.reform.docgen.util.Environment
 
 object CreateAnnotations {
   val thinkTime = Environment.thinkTime
-  val dataFeeder_large= csv("feeder_large_reader.csv").circular
-  val dataFeeder_small= csv("feeder_small_reader.csv").circular
   val dataFeeder_small_create= csv("feeder_small_create.csv").circular
   val dataFeeder_large_create= csv("feeder_large_create.csv").circular
   //val annotationsStru  = "{\"id\":\"${id}\",\"annotationSetId\":\"${annotationSetId}\",\"page\":\"${page}\",\"color\":\"FFFF00\",\"comments\":[{\"id\":\"${commentId}\",\"annotationId\":\"${id}\",\"createdBy\":null,\"createdByDetails\":null,\"createdDate\":\"2018-11-07T14:21:33.538Z\",\"lastModifiedBy\":null,\"lastModifiedByDetails\":null,\"lastModifiedDate\":null,\"content\":\"added comment for testsssssssss\"}],\"rectangles\":[{\"y\":${y},\"x\":${x},\"width\":32.540813,\"height\":10.860495,\"id\":\"${rectangleId}\"}],\"type\":\"highlight\"}"
@@ -35,7 +33,7 @@ object CreateAnnotations {
 
 
 
-  val updateAnnotationHttp = feed(dataFeeder_small).exec(http("TX02_EM_ANNT_Create_Annotations")
+  val updateAnnotationHttp = exec(http("TX02_EM_ANNT_Create_Annotations")
     .put("/api/annotations")
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -59,13 +57,15 @@ object CreateAnnotations {
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .check(status is 200)
 
-  val getAnnotationsById_Small = feed(dataFeeder_small).exec(http("Get annotations by annotation Id Small")
+  val getAnnotationsById_Small = //feed(dataFeeder_small).
+   exec(http("Get annotations by annotation Id Small")
     .get("/api/annotations/${annotationId}" )
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .check(status is 200)).pause(50)
 
-  val getAnnotationsById_Large = feed(dataFeeder_large).exec(http("Get annotations by annotation Id Large")
+  val getAnnotationsById_Large = //feed(dataFeeder_large).
+    exec(http("Get annotations by annotation Id Large")
     .get("/api/annotations/${annotationId}" )
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
