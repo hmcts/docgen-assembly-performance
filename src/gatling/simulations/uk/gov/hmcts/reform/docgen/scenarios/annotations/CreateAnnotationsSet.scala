@@ -11,18 +11,20 @@ object CreateAnnotationsSet {
 
   //val documentId = UUID.randomUUID.toString
  // val annotationSetId = UUID.randomUUID.toString
-  val annosets_200 = jsonFile("read_anno_set_200MB.json").circular
-  val annosets_500 = jsonFile("read_anno_set_500MB.json").circular
-  val annosets_1000 = jsonFile("read_anno_set_1000MB.json").circular
-  val annosets_small = jsonFile("read_new_annosets_smalldocs.json").circular
+  val annosets_200 = csv("read_anno_set_200MB.csv").circular
+  val annosets_500 = csv("read_anno_set_500MB.csv").circular
+  val annosets_1000 = csv("read_anno_set_1000MB.csv").circular
+  val annosets_small = csv("read_annosets_smalldocs_new.csv").circular
   val annosets_200_new = jsonFile("create_anno_set_200MB_new.json").circular
   val annosets_500_new = jsonFile("create_anno_set_500MB_new.json").circular
   val annosets_1000_new = jsonFile("create_anno_set_1000MB_new.json").circular
-  val annosets_small_new = jsonFile("create_new_annosets_smalldocs.json").circular
+  val annosets_small_new = jsonFile("create_annoset_smalldocs_new.json").circular
   val dataFeeder_large= csv("feeder_large_reader.csv").circular
   val dataFeeder_small= csv("feeder_small_reader.csv").circular
   val dataFeeder_large_create= csv("feeder_large_create.csv").circular
   val dataFeeder_small_create= csv("feeder_small_create.csv").circular
+  val dataFeeder_large_status=csv("LargeDocs.csv").circular
+  val dataFeeder_small_status=csv("SmallDocs.csv").circular
 
 
 
@@ -94,6 +96,40 @@ val getAnnoByDocId=
 
     }
 
+  //######################### for checking purpose-delete once check is complete ##########################
+ /* val annotationSet_Status_200 = feed(dataFeeder_small_status).exec(http("AN01_010_200Pages_GetAnnoSet")
+    .get("/api/annotation-sets/filter?documentId=${documentId_small}")
+    // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
+    .header("Authorization", "Bearer ${accessToken}")
+    .header("ServiceAuthorization", "Bearer ${s2sToken}")
+    .header("Content-Type", "application/json")
+    .check(status.in(200,404))
+    .check(status.saveAs("httpStatus")))
+      .doIfOrElse(session => session("httpStatus").as[String].matches("404"))
+  {
+    exec {
+    session =>
+      val fw = new BufferedWriter(new FileWriter("documentIds_create_small.csv", true))
+      try {
+        fw.write(session("documentId_small").as[String]+"\r\n")
+      }
+      finally fw.close()
+      session
+  }
+  }
+  {
+    exec {
+    session =>
+      val fw = new BufferedWriter(new FileWriter("documentIds_read_small.csv", true))
+      try {
+        fw.write(session("documentId_small").as[String]+"\r\n")
+      }
+      finally fw.close()
+      session
+  }
+  }*/
+  //########################## end of checking ##################################
+
   val annotationSet_create_200MB = feed(annosets_200_new).exec(http("AN01_010_200Pages_GetAnnoSet")
     .get("/api/annotation-sets/filter?documentId=${documentId}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
@@ -112,7 +148,7 @@ val getAnnoByDocId=
         // .body(StringBody(annotationsStructure)).asJson
         .body(ElFileBody("createannotationset.json")).asJson
         .check(status is 201))
-        .pause(10)
+        .pause(50)
 
         .repeat(1000) {
           feed(dataFeeder_large_create).exec(http("AN01_030_200Pages_CreateAnnotation")
@@ -122,7 +158,7 @@ val getAnnoByDocId=
             .header("Content-Type", "application/json")
             //  .body(StringBody(annotationsStru))
             .body(ElFileBody("annotations.json")).asJson
-            .check(status is 201)).pause(1)
+            .check(status is 201))
         }
 
     }
@@ -146,9 +182,9 @@ val getAnnoByDocId=
         // .body(StringBody(annotationsStructure)).asJson
         .body(ElFileBody("createannotationset.json")).asJson
         .check(status is 201))
-        .pause(10)
+        .pause(50)
 
-        .repeat(1000) {
+        .repeat(2500) {
           feed(dataFeeder_large_create).exec(http("AN01_030_500Pages_CreateAnnotation")
             .post("/api/annotations")
             .header("Authorization", "Bearer ${accessToken}")
@@ -156,7 +192,7 @@ val getAnnoByDocId=
             .header("Content-Type", "application/json")
             //  .body(StringBody(annotationsStru))
             .body(ElFileBody("annotations.json")).asJson
-            .check(status is 201)).pause(1)
+            .check(status is 201))
         }
 
     }
@@ -178,8 +214,8 @@ val getAnnoByDocId=
         // .body(StringBody(annotationsStructure)).asJson
         .body(ElFileBody("createannotationset.json")).asJson
         .check(status is 201))
-        .pause(10)
-        .repeat(1000) {
+        .pause(50)
+        .repeat(5000) {
           feed(dataFeeder_large_create).exec(http("AN01_030_1000Pages_CreateAnnotation")
             .post("/api/annotations")
             .header("Authorization", "Bearer ${accessToken}")
@@ -187,16 +223,16 @@ val getAnnoByDocId=
             .header("Content-Type", "application/json")
             //  .body(StringBody(annotationsStru))
             .body(ElFileBody("annotations.json")).asJson
-            .check(status is 201)).pause(1)
+            .check(status is 201))
         }
 
     }
 
 
-  // following is for reading
+  // following is for read annosets and annos
 
   val annotationSet_existing_200MB = feed(annosets_200).exec(http("AN02_010_200Pages_GetAnnoSet")
-    .get("/api/annotation-sets/filter?documentId=${documentId}")
+    .get("/api/annotation-sets/filter?documentId=${documentId_200}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -215,7 +251,7 @@ val getAnnoByDocId=
     }
 
   val annotationSet_existing_500MB = feed(annosets_500).exec(http("AN02_010_500Pages_GetAnnoSet")
-    .get("/api/annotation-sets/filter?documentId=${documentId}")
+    .get("/api/annotation-sets/filter?documentId=${documentId_500}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -234,7 +270,7 @@ val getAnnoByDocId=
     }
 
   val annotationSet_existing_1000MB = feed(annosets_1000).exec(http("AN02_010_1000Pages_GetAnnoSet")
-    .get("/api/annotation-sets/filter?documentId=${documentId}")
+    .get("/api/annotation-sets/filter?documentId=${documentId_1000}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -253,7 +289,7 @@ val getAnnoByDocId=
 
 
   val annotationSet_existing_small = feed(annosets_small).exec(http("AN02_010_SmallPages_GetAnnoSet")
-    .get("/api/annotation-sets/filter?documentId=${documentId}")
+    .get("/api/annotation-sets/filter?documentId=${documentId_small}")
     // /api/annotation-sets/filter?documentId=assets/non-dm.jpg
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -301,8 +337,5 @@ val getAnnoByDocId=
     // .body(StringBody(annotationsStructure)).asJson
     .body(ElFileBody("updateAnnotationset.json")).asJson
     .check(status is 201))
-
-
-
 
 }

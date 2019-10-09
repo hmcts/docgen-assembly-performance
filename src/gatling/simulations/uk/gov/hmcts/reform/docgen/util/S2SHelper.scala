@@ -30,6 +30,7 @@ object  S2SHelper {
       )).asJson
       .check(bodyString.saveAs("s2sToken"))
       .check(bodyString.saveAs("responseBody")))
+    .pause(5)
      /* .exec { session => println("S2S Session" +session); session }
       .exec { session => println("S2S Responce Body::--\n>" + session("responseBody").as[String]); session}
       .exec { session => println("S2S Token::--\n>" + session("s2sToken").as[String]); session}*/
