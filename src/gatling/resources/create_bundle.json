@@ -1,34 +1,40 @@
 {
   "case_details":{
-    "id":1549544720400525,
-    "jurisdiction":"PUBLICLAW",
+    "id":1573560369535701,
+    "jurisdiction":"SSCS",
     "state":"1_OPEN",
     "case_type_id":"CCD_BUNDLE_MVP_TYPE",
     "created_date":[
-      2019,
-      2,
-      7,
-      13,
-      5,
-      20,
-      404000000
+    2019,
+    2,
+    7,
+    13,
+    5,
+    20,
+    404000000
     ],
     "last_modified":[
-      2019,
-      2,
-      7,
-      13,
-      5,
-      57,
-      843000000
+    2019,
+    2,
+    7,
+    13,
+    5,
+    57,
+    843000000
     ],
     "security_classification":"PUBLIC",
     "case_data":{
       "caseOwner":null,
+      //"bundleConfiguration": "example.yaml",
       "caseDocument1":{
-        "document_url":"http://dm-store:8080/documents/05647df3-094c-45a3-b667-2a6f1bf3d088",
-        "document_filename":"output 2.pdf",
-        "document_binary_url":"http://dm-store:8080/documents/05647df3-094c-45a3-b667-2a6f1bf3d088/binary"
+        "document_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/8106451b-82d5-42eb-b673-5b2b39488a04",
+        "document_filename":"100_doc.docx",
+        "document_binary_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/8106451b-82d5-42eb-b673-5b2b39488a04/binary"
+      },
+      "caseDocument2":{
+        "document_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/b64d2940-bac8-49f5-a109-ede72d8bfe38",
+        "document_filename":"300_pdf.pdf",
+        "document_binary_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/b64d2940-bac8-49f5-a109-ede72d8bfe38/binary"
       },
       "caseCreationDate":null,
       "caseTitle":null,
@@ -36,7 +42,7 @@
       "caseBundles":[
       ],
       "caseComments":null,
-      "caseDocument1Name":"aaa"
+      "caseDocument1Name":"performance test bundle1"
     },
     "data_classification":{
       "caseOwner":"PUBLIC",
@@ -73,8 +79,8 @@
     }
   },
   "case_details_before":{
-    "id":1549544720400525,
-    "jurisdiction":"PUBLICLAW",
+    "id":1573560369535701,
+    "jurisdiction":"SSCS",
     "state":"1_OPEN",
     "case_type_id":"CCD_BUNDLE_MVP_TYPE",
     "created_date":[
@@ -99,15 +105,20 @@
     "case_data":{
       "caseOwner":null,
       "caseDocument1":{
-        "document_url":"http://dm-store:8080/documents/05647df3-094c-45a3-b667-2a6f1bf3d088",
-        "document_filename":"output 2.pdf",
-        "document_binary_url":"http://dm-store:8080/documents/05647df3-094c-45a3-b667-2a6f1bf3d088/binary"
+        "document_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/8106451b-82d5-42eb-b673-5b2b39488a04",
+        "document_filename":"100_doc.docx",
+        "document_binary_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/8106451b-82d5-42eb-b673-5b2b39488a04/binary"
+      },
+      "caseDocument2":{
+        "document_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/b64d2940-bac8-49f5-a109-ede72d8bfe38",
+        "document_filename":"300_pdf.pdf",
+        "document_binary_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/b64d2940-bac8-49f5-a109-ede72d8bfe38/binary"
       },
       "caseCreationDate":null,
       "caseTitle":null,
       "caseDescription":null,
       "caseComments":null,
-      "caseDocument1Name":"aaa"
+      "caseDocumentName":"aaa"
     },
     "data_classification":{
       "caseOwner":"PUBLIC",

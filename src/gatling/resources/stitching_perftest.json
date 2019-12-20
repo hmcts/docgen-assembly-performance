@@ -1,0 +1,46 @@
+{
+  "case_details": {
+    "case_data": {
+      "caseBundles": [
+        {
+          "value": {
+            "id": "7b7dd840-67e3-43d7-960e-9d3a74f7b895",
+            "title": "Bundle title",
+            "description": "Test bundle",
+            "eligibleForStitching": "yes",
+            "eligibleForCloning": "no",
+            "stitchedDocument": {
+              "document_url": "www.exampleurl.com",
+              "document_filename": "doc filename",
+              "document_binary_url": "www.exampleurl.com/binary"
+            },
+            "documents": [
+              {
+                "value": {
+                  "name": "test document",
+                  "description": "description",
+                  "sortIndex": 1,
+                  "sourceDocument": {
+                    "document_url": "http://dm-store:8080/documents/a4a1325f-e074-4071-9235-d2fe4afcc9d0",
+                    "document_filename": "fn",
+                    "document_binary_url": "http://dm-store:8080/documents/a4a1325f-e074-4071-9235-d2fe4afcc9d0/binary"
+                  }
+                }
+              }
+            ],
+            "folders": [],
+            "fileName": "fileName",
+            "coverpageTemplate": null,
+            "hasTableOfContents": "Yes",
+            "hasCoversheets": "Yes",
+            "hasFolderCoversheets": null,
+            "stitchStatus": "",
+            "paginationStyle": "off",
+            "pageNumberFormat": "numberOfPages",
+            "stitchingFailureMessage": null
+          }
+        }
+      ]
+    }
+  }
+}

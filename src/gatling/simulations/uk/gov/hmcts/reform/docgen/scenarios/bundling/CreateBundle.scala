@@ -10,7 +10,7 @@ object CreateBundle {
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("create_bundle.json")).asJson
+    .body(ElFileBody("bundling-latest.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("responseBody"))
 

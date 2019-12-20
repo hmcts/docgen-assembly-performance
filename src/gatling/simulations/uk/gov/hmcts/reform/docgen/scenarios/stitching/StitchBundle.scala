@@ -15,7 +15,7 @@ object StitchBundle {
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("stitch_bundle.json")).asJson
+    .body(ElFileBody("stitching_perftest.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("stitchresponseBody"))
 

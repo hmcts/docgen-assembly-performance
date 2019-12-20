@@ -92,19 +92,19 @@ class CreateAnnotationsTest extends Simulation {
 
 	setUp(
 
-		create_Annotations_Small_Scn.inject(
+		/*create_Annotations_Small_Scn.inject(
 			rampUsers(640) during (55 minutes)),
 
 		createAnnotations_Large_Scn.inject(
-			rampUsers(90) during (55 minutes)),
+			rampUsers(90) during (55 minutes)),*/
 
 		read_Annotations_Large_Scn.inject(
-			nothingFor(60 seconds),
-			rampUsers(150) during (59 minutes)),
+			nothingFor(10 seconds),
+			rampUsers(1) during (1 minutes))
 
-		read_Annotations_Small_Scn.inject(
+		/*read_Annotations_Small_Scn.inject(
 			nothingFor(60 seconds),
-			rampUsers(330) during (59 minutes)),
+			rampUsers(330) during (59 minutes)),*/
 
 	)
 
