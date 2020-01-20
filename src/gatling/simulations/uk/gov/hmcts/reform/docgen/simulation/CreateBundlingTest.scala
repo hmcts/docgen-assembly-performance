@@ -10,6 +10,7 @@ import scala.concurrent.duration._
 
 class CreateBundlingTest extends Simulation {
 
+	val caseFeeder=csv("case_data.csv").circular
 
 	val httpProtocol = http
 		.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
@@ -18,6 +19,7 @@ class CreateBundlingTest extends Simulation {
 
 	//create annos and annosets
 	val createBundling_Scn = scenario("Create Bundling For SSCS ")
+  	.feed(caseFeeder)
 		.exec(IDAMHelper.getIdamAuthCode)
 		.exec( S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
@@ -29,8 +31,6 @@ class CreateBundlingTest extends Simulation {
 			33d->exec(CreateAnnotationsSet.annotationSet_create_500MB),
 			33d ->	exec(CreateAnnotationsSet.annotationSet_create_1000MB)
 		)*/
-
-
 
 
 	setUp(

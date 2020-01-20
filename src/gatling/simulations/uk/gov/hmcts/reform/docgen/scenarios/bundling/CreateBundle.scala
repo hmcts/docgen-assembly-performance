@@ -3,6 +3,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object CreateBundle {
+  val caseFeeder=csv("case_data.csv").circular
 
 
   val postCreateBundleReq = http("New Bundle")
