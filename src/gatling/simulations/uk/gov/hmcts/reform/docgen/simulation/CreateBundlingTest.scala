@@ -24,7 +24,7 @@ class CreateBundlingTest extends Simulation {
 		.exec( S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
   	.exec(CreateBundle.postCreateBundleReq)
-	  	.pause(30)
+//		.pause(30)
   	//.exec(StitchBundle.postStitchBundle)
 		/*.randomSwitch(
 			34d ->	exec(CreateAnnotationsSet.annotationSet_create_200MB),
@@ -36,7 +36,7 @@ class CreateBundlingTest extends Simulation {
 	setUp(
 
 		createBundling_Scn.inject(
-			rampUsers(1) during (1 minutes))
+			rampUsers(10) during (1 minutes))
 	)
 		.protocols(httpProtocol)
 		.maxDuration(5 minutes)
