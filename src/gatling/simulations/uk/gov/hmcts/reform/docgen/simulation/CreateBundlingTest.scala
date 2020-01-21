@@ -36,7 +36,7 @@ class CreateBundlingTest extends Simulation {
 	setUp(
 
 		createBundling_Scn.inject(
-			rampUsers(10) during (1 minutes))
+			rampUsers(1) during (1 minutes))
 	)
 		.protocols(httpProtocol)
 		.maxDuration(5 minutes)
