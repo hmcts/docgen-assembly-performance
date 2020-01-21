@@ -1,46 +1,64 @@
 {
-  "case_details": {
-    "case_data": {
-      "caseBundles": [
-        {
-          "value": {
-            "id": "7b7dd840-67e3-43d7-960e-9d3a74f7b895",
-            "title": "Bundle title",
-            "description": "Test bundle",
-            "eligibleForStitching": "yes",
-            "eligibleForCloning": "no",
-            "stitchedDocument": {
-              "document_url": "www.exampleurl.com",
-              "document_filename": "doc filename",
-              "document_binary_url": "www.exampleurl.com/binary"
-            },
-            "documents": [
-              {
-                "value": {
-                  "name": "test document",
-                  "description": "description",
-                  "sortIndex": 1,
-                  "sourceDocument": {
-                    "document_url": "http://dm-store:8080/documents/a4a1325f-e074-4071-9235-d2fe4afcc9d0",
-                    "document_filename": "fn",
-                    "document_binary_url": "http://dm-store:8080/documents/a4a1325f-e074-4071-9235-d2fe4afcc9d0/binary"
+  "data": {
+    "caseBundles": [
+      {
+        "value": {
+          "id": "748bd854-62fe-40f3-8f05-6643d546a30f",
+          "title": "New bundle",
+          "description": null,
+          "eligibleForStitching": "no",
+          "eligibleForCloning": "no",
+          "stitchedDocument": {
+            "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/c9016213-c3e4-4e73-b537-982de79f0439",
+            "document_filename": "stitched.pdf",
+            "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/c9016213-c3e4-4e73-b537-982de79f0439/binary"
+          },
+          "documents": [],
+          "folders": [
+            {
+              "value": {
+                "name": "Folder 1",
+                "documents": [],
+                "folders": [
+                  {
+                    "value": {
+                      "name": "Folder 1.a",
+                      "documents": [],
+                      "sortIndex": 0
+                    }
+                  },
+                  {
+                    "value": {
+                      "name": "Folder 1.b",
+                      "documents": [],
+                      "sortIndex": 1
+                    }
                   }
-                }
+                ],
+                "sortIndex": 0
               }
-            ],
-            "folders": [],
-            "fileName": "fileName",
-            "coverpageTemplate": null,
-            "hasTableOfContents": "Yes",
-            "hasCoversheets": "Yes",
-            "hasFolderCoversheets": null,
-            "stitchStatus": "",
-            "paginationStyle": "off",
-            "pageNumberFormat": "numberOfPages",
-            "stitchingFailureMessage": null
-          }
+            },
+            {
+              "value": {
+                "name": "Folder 2",
+                "documents": [],
+                "sortIndex": 1
+              }
+            }
+          ],
+          "fileName": "stitched.pdf",
+          "coverpageTemplate": "FL-FRM-APP-ENG-00002.docx",
+          "hasTableOfContents": "Yes",
+          "hasCoversheets": "Yes",
+          "hasFolderCoversheets": "No",
+          "stitchStatus": "NEW",
+          "paginationStyle": "topLeft",
+          "pageNumberFormat": "numberOfPages",
+          "stitchingFailureMessage": null
         }
-      ]
-    }
-  }
+      }
+    ]
+  },
+  "errors": [],
+  "warnings": []
 }
