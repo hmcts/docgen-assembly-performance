@@ -14,7 +14,7 @@ class CreateBundlingTest extends Simulation {
 	val caseFeeder=csv("case_data.csv").circular
 
 	val httpProtocol = http
-		.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
+//		.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
 		.baseUrl(Environment.bundlingURL)
 
 
