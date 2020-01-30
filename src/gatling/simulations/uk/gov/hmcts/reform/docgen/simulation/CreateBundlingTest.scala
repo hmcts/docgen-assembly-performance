@@ -14,7 +14,7 @@ class CreateBundlingTest extends Simulation {
 	val caseFeeder=csv("case_data.csv").circular
 
 	val httpProtocol = http
-//		.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
+		.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
 		.baseUrl(Environment.bundlingURL)
 
 
@@ -26,7 +26,7 @@ class CreateBundlingTest extends Simulation {
 		.exec(S2SHelper.S2SAuthToken)
   	.exec(CreateBundle.postCreateBundleReq)
 //		.pause(30)
-//  	.exec(StitchBundle.postStitchBundle)
+	//  	.exec(StitchBundle.postStitchBundle)
 		/*.randomSwitch(
 			34d ->	exec(CreateAnnotationsSet.annotationSet_create_200MB),
 			33d->exec(CreateAnnotationsSet.annotationSet_create_500MB),
@@ -37,7 +37,7 @@ class CreateBundlingTest extends Simulation {
 	setUp(
 
 		createBundling_Scn.inject(
-			rampUsers(10) during (2 minutes))
+			rampUsers(1) during (1 minutes))
 	)
 		.protocols(httpProtocol)
 		.maxDuration(5 minutes)

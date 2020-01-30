@@ -14,6 +14,8 @@ object CreateBundle {
     .body(ElFileBody("bundling-latest.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("responseBody"))
+    .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
+    .check(jsonPath("$..id").saveAs("bundleId"))
 
   val postUser = scenario("New Bundle")
     .exec(postCreateBundleReq)
