@@ -19,7 +19,7 @@ object  S2SHelper {
 
   val S2SAuthToken =
 
-    exec(http("TX030_EM_DA_S2S Token")
+    exec(http("TX030_EM_Bundle_S2S Token")
       .post(Env.getS2sUrl+"/lease")
       .header("Content-Type", "application/json")
       .body(StringBody(
@@ -30,7 +30,7 @@ object  S2SHelper {
       )).asJson
       .check(bodyString.saveAs("s2sToken"))
       .check(bodyString.saveAs("responseBody")))
-    .pause(5)
+    .pause(50)
      /* .exec { session => println("S2S Session" +session); session }
       .exec { session => println("S2S Responce Body::--\n>" + session("responseBody").as[String]); session}
       .exec { session => println("S2S Token::--\n>" + session("s2sToken").as[String]); session}*/
