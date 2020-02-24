@@ -1,9 +1,9 @@
 {
   "case_details":{
     "id":1573560369535701,
-    "jurisdiction":"SSCS",
+    "jurisdiction":"PUBLICLAW",
     "state":"1_OPEN",
-    "case_type_id":"CCD_BUNDLE_MVP_TYPE",
+    "case_type_id":"CCD_BUNDLE_MVP_TYPE_ASYNC_FERDI",
     "created_date":[
     2019,
     2,
@@ -42,7 +42,7 @@
       "caseBundles":[
       ],
       "caseComments":null,
-      "caseDocument1Name":"performance test bundle1"
+      "caseDocument1Name":"Perf Test Bundle 17th Feb 2020"
     },
     "data_classification":{
       "caseOwner":"PUBLIC",
@@ -80,9 +80,9 @@
   },
   "case_details_before":{
     "id":1573560369535701,
-    "jurisdiction":"SSCS",
+    "jurisdiction":"PUBLICLAW",
     "state":"1_OPEN",
-    "case_type_id":"CCD_BUNDLE_MVP_TYPE",
+    "case_type_id":"CCD_BUNDLE_MVP_TYPE_ASYNC_FERDI",
     "created_date":[
       2019,
       2,

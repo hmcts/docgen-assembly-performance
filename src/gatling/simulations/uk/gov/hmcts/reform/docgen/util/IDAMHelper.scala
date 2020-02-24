@@ -5,8 +5,10 @@ import simulations.uk.gov.hmcts.reform.docgen.util.Environment
 
 object IDAMHelper {
 
-  private val USERNAME = "testytesttest@test.net"
-  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
+ /* private val USERNAME = "testytesttest@test.net"
+  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"*/
+ private val USERNAME = "james@swansea.gov.uk"
+  private val PASSWORD = "Password123"
 // private val USERNAME = "emshowcase@hmcts.net"
  // private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
   // below are for aat
@@ -25,7 +27,7 @@ object IDAMHelper {
       .header("Content-Length", "0")
       .check(status.is(200))
       .check(jsonPath("$..code").optional.saveAs("serviceauthcode")))
-      .pause(50)
+      .pause(5)//original value is 50
 
       .doIf(session => session.contains("serviceauthcode")) {
         exec(http("TX020_EM_Bundle_Oauth2Token")
@@ -34,6 +36,6 @@ object IDAMHelper {
           .header("Content-Length", "0")
           .check(jsonPath("$..access_token").optional.saveAs("accessToken"))
           .check(status.is(200)))
-          .pause(50)
+          .pause(5)// original value is 50
       }
 }

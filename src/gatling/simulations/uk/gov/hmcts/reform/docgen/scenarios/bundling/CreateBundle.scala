@@ -13,7 +13,7 @@ object CreateBundle {
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("bundling-latest.json")).asJson
+    .body(ElFileBody("bundling-latest-original.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
@@ -25,7 +25,7 @@ object CreateBundle {
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("bundling-latest.json")).asJson
+    .body(ElFileBody("bundling-latest-original.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
@@ -36,7 +36,7 @@ object CreateBundle {
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("bundling-latest.json")).asJson
+    .body(ElFileBody("bundling-latest-original.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
