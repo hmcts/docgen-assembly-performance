@@ -1,0 +1,349 @@
+{
+  "case_details": {
+    "id": 1582281036517167,
+    "jurisdiction": "PUBLICLAW",
+    "state": "1_OPEN",
+    "version": 1,
+    "case_type_id": "CCD_BUNDLE_MVP_TYPE_ASYNC_FERDI",
+    "created_date": [
+      2020,
+      2,
+      21,
+      10,
+      30,
+      36,
+      543000000
+    ],
+    "last_modified": [
+      2020,
+      2,
+      21,
+      10,
+      32,
+      15,
+      101000000
+    ],
+    "security_classification": "PUBLIC",
+    "case_data": {
+      "caseOwner": null,
+      "caseReference": null,
+      "caseTitle": null,
+      "caseDocuments": [
+        {
+          "id": "afa5d2e2-21a9-443d-80b6-113ed2145680",
+          "value": {
+            "createdBy": null,
+            "documentLink": {
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/1737e875-43dc-460e-99f3-ba1d9e549e0e",
+              "document_filename": "RPE-ASEtoAKSmigration-050919-1128-6.pdf",
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/1737e875-43dc-460e-99f3-ba1d9e549e0e/binary"
+            },
+            "documentName": "Doc1",
+            "documentType": null,
+            "ownerCaseRole": null,
+            "createdDatetime": null,
+            "receivedDatetime": null,
+            "ownerCaseRolePartyId": null
+          }
+        },
+        {
+          "id": "7ee4c17e-4124-4684-95af-a8a1f151a4bb",
+          "value": {
+            "createdBy": null,
+            "documentLink": {
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/25f2d794-0bdf-4d89-8ec5-f7c366b5f678",
+              "document_filename": "RPE-HealthCheckendpoints-060919-1345-68.pdf",
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/25f2d794-0bdf-4d89-8ec5-f7c366b5f678/binary"
+            },
+            "documentName": "Doc2",
+            "documentType": null,
+            "ownerCaseRole": null,
+            "createdDatetime": null,
+            "receivedDatetime": null,
+            "ownerCaseRolePartyId": null
+          }
+        }
+      ],
+      "claimant1LastName": null,
+      "caseComments": null,
+      "defendant1FirstName": null,
+      "bundleConfiguration": "f-tests-1-flat-docs.yaml",
+      "caseCreationDate": null,
+      "caseDescription": null,
+      "claimant1FirstName": null,
+      "caseBundles": [],
+      "defendant1LastName": null
+    },
+    "data_classification": {
+      "caseOwner": "PUBLIC",
+      "caseReference": "PUBLIC",
+      "caseTitle": "PUBLIC",
+      "caseDocuments": {
+        "classification": "PUBLIC",
+        "value": [
+          {
+            "id": "afa5d2e2-21a9-443d-80b6-113ed2145680",
+            "value": {
+              "createdBy": "PUBLIC",
+              "documentLink": "PUBLIC",
+              "documentName": "PUBLIC",
+              "documentType": "PUBLIC",
+              "ownerCaseRole": "PUBLIC",
+              "createdDatetime": "PUBLIC",
+              "receivedDatetime": "PUBLIC",
+              "ownerCaseRolePartyId": "PUBLIC"
+            }
+          },
+          {
+            "id": "7ee4c17e-4124-4684-95af-a8a1f151a4bb",
+            "value": {
+              "createdBy": "PUBLIC",
+              "documentLink": "PUBLIC",
+              "documentName": "PUBLIC",
+              "documentType": "PUBLIC",
+              "ownerCaseRole": "PUBLIC",
+              "createdDatetime": "PUBLIC",
+              "receivedDatetime": "PUBLIC",
+              "ownerCaseRolePartyId": "PUBLIC"
+            }
+          }
+        ]
+      },
+      "claimant1LastName": "PUBLIC",
+      "caseComments": "PUBLIC",
+      "defendant1FirstName": "PUBLIC",
+      "bundleConfiguration": "PUBLIC",
+      "caseCreationDate": "PUBLIC",
+      "caseDescription": "PUBLIC",
+      "claimant1FirstName": "PUBLIC",
+      "caseBundles": {
+        "classification": "PUBLIC",
+        "value": []
+      },
+      "defendant1LastName": "PUBLIC"
+    },
+    "after_submit_callback_response": null,
+    "callback_response_status_code": null,
+    "callback_response_status": null,
+    "delete_draft_response_status_code": null,
+    "delete_draft_response_status": null,
+    "security_classifications": {
+      "caseOwner": "PUBLIC",
+      "caseReference": "PUBLIC",
+      "caseTitle": "PUBLIC",
+      "caseDocuments": {
+        "classification": "PUBLIC",
+        "value": [
+          {
+            "id": "afa5d2e2-21a9-443d-80b6-113ed2145680",
+            "value": {
+              "createdBy": "PUBLIC",
+              "documentLink": "PUBLIC",
+              "documentName": "PUBLIC",
+              "documentType": "PUBLIC",
+              "ownerCaseRole": "PUBLIC",
+              "createdDatetime": "PUBLIC",
+              "receivedDatetime": "PUBLIC",
+              "ownerCaseRolePartyId": "PUBLIC"
+            }
+          },
+          {
+            "id": "7ee4c17e-4124-4684-95af-a8a1f151a4bb",
+            "value": {
+              "createdBy": "PUBLIC",
+              "documentLink": "PUBLIC",
+              "documentName": "PUBLIC",
+              "documentType": "PUBLIC",
+              "ownerCaseRole": "PUBLIC",
+              "createdDatetime": "PUBLIC",
+              "receivedDatetime": "PUBLIC",
+              "ownerCaseRolePartyId": "PUBLIC"
+            }
+          }
+        ]
+      },
+      "claimant1LastName": "PUBLIC",
+      "caseComments": "PUBLIC",
+      "defendant1FirstName": "PUBLIC",
+      "bundleConfiguration": "PUBLIC",
+      "caseCreationDate": "PUBLIC",
+      "caseDescription": "PUBLIC",
+      "claimant1FirstName": "PUBLIC",
+      "caseBundles": {
+        "classification": "PUBLIC",
+        "value": []
+      },
+      "defendant1LastName": "PUBLIC"
+    }
+  },
+  "case_details_before": {
+    "id": 1582281036517167,
+    "jurisdiction": "PUBLICLAW",
+    "state": "1_OPEN",
+    "version": 1,
+    "case_type_id": "CCD_BUNDLE_MVP_TYPE_ASYNC_FERDI",
+    "created_date": [
+      2020,
+      2,
+      21,
+      10,
+      30,
+      36,
+      543000000
+    ],
+    "last_modified": [
+      2020,
+      2,
+      21,
+      10,
+      32,
+      1,
+      350000000
+    ],
+    "security_classification": "PUBLIC",
+    "case_data": {
+      "defendant1FirstName": null,
+      "caseOwner": null,
+      "caseReference": null,
+      "bundleConfiguration": "f-tests-1-flat-docs.yaml",
+      "caseCreationDate": null,
+      "caseTitle": null,
+      "caseDocuments": [
+        {
+          "id": "afa5d2e2-21a9-443d-80b6-113ed2145680",
+          "value": {
+            "createdBy": null,
+            "documentLink": {
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/1737e875-43dc-460e-99f3-ba1d9e549e0e",
+              "document_filename": "RPE-ASEtoAKSmigration-050919-1128-6.pdf",
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/1737e875-43dc-460e-99f3-ba1d9e549e0e/binary"
+            },
+            "documentName": "Doc1",
+            "documentType": null,
+            "ownerCaseRole": null,
+            "createdDatetime": null,
+            "receivedDatetime": null,
+            "ownerCaseRolePartyId": null
+          }
+        },
+        {
+          "id": "7ee4c17e-4124-4684-95af-a8a1f151a4bb",
+          "value": {
+            "createdBy": null,
+            "documentLink": {
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/25f2d794-0bdf-4d89-8ec5-f7c366b5f678",
+              "document_filename": "RPE-HealthCheckendpoints-060919-1345-68.pdf",
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/25f2d794-0bdf-4d89-8ec5-f7c366b5f678/binary"
+            },
+            "documentName": "Doc2",
+            "documentType": null,
+            "ownerCaseRole": null,
+            "createdDatetime": null,
+            "receivedDatetime": null,
+            "ownerCaseRolePartyId": null
+          }
+        }
+      ],
+      "caseDescription": null,
+      "claimant1FirstName": null,
+      "claimant1LastName": null,
+      "defendant1LastName": null,
+      "caseComments": null
+    },
+    "data_classification": {
+      "defendant1FirstName": "PUBLIC",
+      "caseOwner": "PUBLIC",
+      "caseReference": "PUBLIC",
+      "bundleConfiguration": "PUBLIC",
+      "caseCreationDate": "PUBLIC",
+      "caseTitle": "PUBLIC",
+      "caseDocuments": {
+        "value": [
+          {
+            "id": "afa5d2e2-21a9-443d-80b6-113ed2145680",
+            "value": {
+              "createdBy": "PUBLIC",
+              "documentLink": "PUBLIC",
+              "documentName": "PUBLIC",
+              "documentType": "PUBLIC",
+              "ownerCaseRole": "PUBLIC",
+              "createdDatetime": "PUBLIC",
+              "receivedDatetime": "PUBLIC",
+              "ownerCaseRolePartyId": "PUBLIC"
+            }
+          },
+          {
+            "id": "7ee4c17e-4124-4684-95af-a8a1f151a4bb",
+            "value": {
+              "createdBy": "PUBLIC",
+              "documentLink": "PUBLIC",
+              "documentName": "PUBLIC",
+              "documentType": "PUBLIC",
+              "ownerCaseRole": "PUBLIC",
+              "createdDatetime": "PUBLIC",
+              "receivedDatetime": "PUBLIC",
+              "ownerCaseRolePartyId": "PUBLIC"
+            }
+          }
+        ],
+        "classification": "PUBLIC"
+      },
+      "caseDescription": "PUBLIC",
+      "claimant1FirstName": "PUBLIC",
+      "claimant1LastName": "PUBLIC",
+      "defendant1LastName": "PUBLIC",
+      "caseComments": "PUBLIC"
+    },
+    "after_submit_callback_response": null,
+    "callback_response_status_code": null,
+    "callback_response_status": null,
+    "delete_draft_response_status_code": null,
+    "delete_draft_response_status": null,
+    "security_classifications": {
+      "defendant1FirstName": "PUBLIC",
+      "caseOwner": "PUBLIC",
+      "caseReference": "PUBLIC",
+      "bundleConfiguration": "PUBLIC",
+      "caseCreationDate": "PUBLIC",
+      "caseTitle": "PUBLIC",
+      "caseDocuments": {
+        "value": [
+          {
+            "id": "afa5d2e2-21a9-443d-80b6-113ed2145680",
+            "value": {
+              "createdBy": "PUBLIC",
+              "documentLink": "PUBLIC",
+              "documentName": "PUBLIC",
+              "documentType": "PUBLIC",
+              "ownerCaseRole": "PUBLIC",
+              "createdDatetime": "PUBLIC",
+              "receivedDatetime": "PUBLIC",
+              "ownerCaseRolePartyId": "PUBLIC"
+            }
+          },
+          {
+            "id": "7ee4c17e-4124-4684-95af-a8a1f151a4bb",
+            "value": {
+              "createdBy": "PUBLIC",
+              "documentLink": "PUBLIC",
+              "documentName": "PUBLIC",
+              "documentType": "PUBLIC",
+              "ownerCaseRole": "PUBLIC",
+              "createdDatetime": "PUBLIC",
+              "receivedDatetime": "PUBLIC",
+              "ownerCaseRolePartyId": "PUBLIC"
+            }
+          }
+        ],
+        "classification": "PUBLIC"
+      },
+      "caseDescription": "PUBLIC",
+      "claimant1FirstName": "PUBLIC",
+      "claimant1LastName": "PUBLIC",
+      "defendant1LastName": "PUBLIC",
+      "caseComments": "PUBLIC"
+    }
+  },
+  "event_id": "createBundle",
+  "ignore_warning": false
+}
