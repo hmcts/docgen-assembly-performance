@@ -1,0 +1,58 @@
+{
+  "case_details": {
+    "case_data": {
+      "caseBundles": [
+        {
+          "value": {
+            "id": "585c4651-16a7-48c7-bad1-a45e4fe09f8e",
+            "title": "Bundle title",
+            "description": "Test bundle",
+            "eligibleForStitching": "yes",
+            "eligibleForCloning": "no",
+            "stitchedDocument": {
+              "document_url": "www.exampleurl.com",
+              "document_filename": "doc filename",
+              "document_binary_url": "www.exampleurl.com/binary"
+            },
+            "documents": [
+              {
+                "value": {
+                  "name": "RPE-ASEtoAKSmigration-050919-1128-6.pdf",
+                  "description": "description",
+                  "sortIndex": 1,
+                  "sourceDocument": {
+                    "document_url": "http://localhost:4603/documents/55c0c77d-d06f-4dab-bd7f-2519e1d5ae61",
+                    "document_filename": "RPE-ASEtoAKSmigration-050919-1128-6.pdf",
+                    "document_binary_url": "http://localhost:4603/documents/55c0c77d-d06f-4dab-bd7f-2519e1d5ae61/binary"
+                  }
+                }
+              },
+              {
+                "value": {
+                  "name": "RPE-HealthCheckendpoints-060919-1345-68.pdf",
+                  "description": "description",
+                  "sortIndex": 1,
+                  "sourceDocument": {
+                    "document_url": "http://localhost:4603/documents/f71a7438-4943-4eb2-b3ab-1d17aab43fe8",
+                    "document_filename": "RPE-HealthCheckendpoints-060919-1345-68.pdf",
+                    "document_binary_url": "http://localhost:4603/documents/f71a7438-4943-4eb2-b3ab-1d17aab43fe8/binary"
+                  }
+                }
+              }
+            ],
+            "folders": [],
+            "fileName": "fileName",
+            "coverpageTemplate": null,
+            "hasTableOfContents": "Yes",
+            "hasCoversheets": "Yes",
+            "hasFolderCoversheets": null,
+            "stitchStatus": "",
+            "paginationStyle": "off",
+            "pageNumberFormat": "numberOfPages",
+            "stitchingFailureMessage": null
+          }
+        }
+      ]
+    }
+  }
+}
