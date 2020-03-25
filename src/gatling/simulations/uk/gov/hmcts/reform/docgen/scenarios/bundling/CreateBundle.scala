@@ -9,38 +9,38 @@ object CreateBundle {
 
 
   val postCreateBundleReq_30MB = feed(caseFeeder_30MB).exec(http("TX040_EM_Bundle_Bundling_30MB")
-    .post("/api/new-bundle")
+    .post("/api/stitch-ccd-bundles")
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("bundling-latest-original.json")).asJson
+    .body(ElFileBody("stitch-ccd-bundles.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
-    .check(jsonPath("$..id").saveAs("bundleId")))
+    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL")))
 
 
   val postCreateBundleReq_100MB = feed(caseFeeder_100MB).exec(http("TX040_EM_Bundle_Bundling_100MB")
-    .post("/api/new-bundle")
+    .post("/api/stitch-ccd-bundles")
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("bundling-latest-original.json")).asJson
+    .body(ElFileBody("stitch-ccd-bundles.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
-    .check(jsonPath("$..id").saveAs("bundleId")))
+    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL")))
 
   val postCreateBundleReq_300MB = feed(caseFeeder_300MB).exec(http("TX040_EM_Bundle_Bundling_300MB")
-    .post("/api/new-bundle")
+    .post("/api/stitch-ccd-bundles")
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("bundling-latest-original.json")).asJson
+    .body(ElFileBody("stitch-ccd-bundles.json")).asJson
     .check(status is 200)
     .check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
-    .check(jsonPath("$..id").saveAs("bundleId")))
+    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL")))
 
 
 }
