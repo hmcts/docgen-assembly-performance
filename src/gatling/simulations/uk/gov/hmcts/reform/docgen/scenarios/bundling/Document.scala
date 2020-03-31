@@ -7,11 +7,12 @@ object Document {
 
   val extToContentType = Map(
     "pdf" -> "application/pdf",
+    "docx" -> "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     "txt" -> "text/plain",
     "mp3" -> "audio/mpeg",
   )
 
-  val documentsFeeder = Iterator.continually(Map("document_file" -> "300_pdf.pdf"))
+  val documentsFeeder = Iterator.continually(Map("document_file" -> "750_pdf.pdf"))
 
 
   var uploadedDocuments = new ListBuffer[String]()
