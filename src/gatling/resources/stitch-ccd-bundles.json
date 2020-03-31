@@ -15,9 +15,9 @@
                   "name": "Case document1",
                   "description": "description",
                   "sourceDocument": {
-                    "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/8c9038b0-dec7-4253-9fd4-35d86efda874",
-                    "document_filename": "100_pdf.pdf",
-                    "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/8c9038b0-dec7-4253-9fd4-35d86efda874/binary"
+                    "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc1-id}",
+                    "document_filename": "${doc1-name}",
+                    "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc1-id}/binary"
                   }
                 }
               },
@@ -26,9 +26,9 @@
                   "name": "Case document2",
                   "description": "description",
                   "sourceDocument": {
-                    "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/469aaf37-3807-4653-83e7-66b008993718",
-                    "document_filename": "300_pdf.pdf",
-                    "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/469aaf37-3807-4653-83e7-66b008993718/binary"
+                    "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}",
+                    "document_filename": "${doc2-name}",
+                    "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}/binary"
                   }
                 }
               }
