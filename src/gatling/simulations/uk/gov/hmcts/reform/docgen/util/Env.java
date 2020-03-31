@@ -21,6 +21,7 @@ public class Env {
         defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-perftest.service.core-compute-perftest.internal");
         defaults.setProperty("FUNCTIONAL_TEST_CLIENT_S2S_TOKEN", "ZTUJMGDXR4ATXB4O");
         //defaults.setProperty("FUNCTIONAL_TEST_CLIENT_S2S_TOKEN", "MHND2CEZ4KVRDNSF");
+        defaults.setProperty("DM_STORE_API_BASE_URI", "http://dm-store-perftest.service.core-compute-perftest.internal");
 
         defaults.setProperty("S2S_SERVICE_NAME", "em_gw");
         //defaults.setProperty("S2S_SERVICE_NAME", "em_ccd_orchestrator");
@@ -73,6 +74,8 @@ public class Env {
         return Base64.getEncoder().encodeToString(Env.file.getBytes());
     }
 
-
+    public static String getDocStoreUrl() {
+        return require("DM_STORE_API_BASE_URI");
+    }
 
 }
