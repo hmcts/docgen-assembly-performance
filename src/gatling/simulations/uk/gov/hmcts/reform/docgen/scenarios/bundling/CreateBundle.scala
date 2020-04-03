@@ -3,12 +3,12 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object CreateBundle {
-  val caseFeeder_30MB=csv("case_data_30MB.csv").circular
-  val caseFeeder_100MB=csv("case_data_100MB.csv").circular
-  val caseFeeder_300MB=csv("case_data_300MB.csv").circular
+  val caseFeeder_30Pages=csv("case_data_30Pages.csv").circular
+  val caseFeeder_100Pages=csv("case_data_100pages.csv").circular
+  val caseFeeder_300Pages=csv("case_data_300Pages.csv").circular
 
 
-  val postCreateBundleReq_30MB = feed(caseFeeder_30MB).exec(http("TX040_EM_Bundle_Bundling_30MB")
+  val postCreateBundleReq_30Pages = feed(caseFeeder_30Pages).exec(http("TX040_EM_Bundle_Bundling_30Pages")
     .post("/api/stitch-ccd-bundles")
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -20,7 +20,7 @@ object CreateBundle {
     .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL")))
 
 
-  val postCreateBundleReq_100MB = feed(caseFeeder_100MB).exec(http("TX040_EM_Bundle_Bundling_100MB")
+  val postCreateBundleReq_100Pages = feed(caseFeeder_100Pages).exec(http("TX040_EM_Bundle_Bundling_100Pages")
     .post("/api/stitch-ccd-bundles")
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
@@ -31,7 +31,7 @@ object CreateBundle {
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
     .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL")))
 
-  val postCreateBundleReq_300MB = feed(caseFeeder_300MB).exec(http("TX040_EM_Bundle_Bundling_300MB")
+  val postCreateBundleReq_300Pages = feed(caseFeeder_300Pages).exec(http("TX040_EM_Bundle_Bundling_300Pages")
     .post("/api/stitch-ccd-bundles")
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")

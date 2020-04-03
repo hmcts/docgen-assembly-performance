@@ -17,17 +17,17 @@ class CreateBundlingTest extends Simulation {
 
 
 	//create annos and annosets
-	val createBundling_Scn = scenario("Create Bundling For SSCS ")
+	val createBundling_Scn = scenario("Create Bundling For IAC ")
 		.exec(IDAMHelper.getIdamAuthCode)
 		.exec(S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
-	  	.repeat(1) {
-				exec(CreateBundle.postCreateBundleReq_30MB)
-				//randomSwitch(
-					//34d -> exec(CreateBundle.postCreateBundleReq_30MB)
-					//33d -> exec(CreateBundle.postCreateBundleReq_100MB),
-					//33d -> exec(CreateBundle.postCreateBundleReq_300MB)
-				//)
+	  	.repeat(3) {
+				//exec(CreateBundle.postCreateBundleReq_30MB)
+				randomSwitch(
+					34d -> exec(CreateBundle.postCreateBundleReq_30Pages),
+					33d -> exec(CreateBundle.postCreateBundleReq_100Pages),
+					33d -> exec(CreateBundle.postCreateBundleReq_300Pages)
+				)
 					.pause(10)
 			}
 
