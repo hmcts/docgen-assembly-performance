@@ -29,7 +29,7 @@ private val USERNAME = "perftestsample@mailinator.com"
       .header("Content-Length", "0")
       .check(status.is(200))
       .check(jsonPath("$..code").optional.saveAs("serviceauthcode")))
-      .pause(5)//original value is 50
+      .pause(50)//original value is 50
 
       .doIf(session => session.contains("serviceauthcode")) {
         exec(http("TX020_EM_Bundle_Oauth2Token")
@@ -38,6 +38,6 @@ private val USERNAME = "perftestsample@mailinator.com"
           .header("Content-Length", "0")
           .check(jsonPath("$..access_token").optional.saveAs("accessToken"))
           .check(status.is(200)))
-          .pause(5)// original value is 50
+          .pause(50)// original value is 50
       }
 }

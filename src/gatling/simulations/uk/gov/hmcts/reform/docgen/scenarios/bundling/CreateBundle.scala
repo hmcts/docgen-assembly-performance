@@ -15,9 +15,10 @@ object CreateBundle {
     .header("Content-Type", "application/json")
     .body(ElFileBody("stitch-ccd-bundles.json")).asJson
     .check(status is 200)
-    .check(bodyString.saveAs("responseBody"))
+    /*.check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
-    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL")))
+    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL"))*/
+  )
 
 
   val postCreateBundleReq_100Pages = feed(caseFeeder_100Pages).exec(http("TX040_EM_Bundle_Bundling_100Pages")
@@ -27,9 +28,10 @@ object CreateBundle {
     .header("Content-Type", "application/json")
     .body(ElFileBody("stitch-ccd-bundles.json")).asJson
     .check(status is 200)
-    .check(bodyString.saveAs("responseBody"))
+   /* .check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
-    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL")))
+    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL"))*/
+  )
 
   val postCreateBundleReq_300Pages = feed(caseFeeder_300Pages).exec(http("TX040_EM_Bundle_Bundling_300Pages")
     .post("/api/stitch-ccd-bundles")
@@ -38,9 +40,10 @@ object CreateBundle {
     .header("Content-Type", "application/json")
     .body(ElFileBody("stitch-ccd-bundles.json")).asJson
     .check(status is 200)
-    .check(bodyString.saveAs("responseBody"))
+    /*.check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
-    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL")))
+    .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL"))*/
+  )
 
 
 }

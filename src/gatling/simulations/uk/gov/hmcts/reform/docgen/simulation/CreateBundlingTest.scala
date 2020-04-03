@@ -28,7 +28,7 @@ class CreateBundlingTest extends Simulation {
 					33d -> exec(CreateBundle.postCreateBundleReq_100Pages),
 					33d -> exec(CreateBundle.postCreateBundleReq_300Pages)
 				)
-					.pause(10)
+					.pause(100)
 			}
 
   	//.exec(CreateBundle.postCreateBundleReq)
@@ -40,7 +40,7 @@ class CreateBundlingTest extends Simulation {
 	setUp(
 
 		createBundling_Scn.inject(
-			rampUsers(1) during (1 minutes))
+			rampUsers(220) during (56 minutes))
 	)
 		.protocols(httpProtocol)
 		.maxDuration(90 minutes)
