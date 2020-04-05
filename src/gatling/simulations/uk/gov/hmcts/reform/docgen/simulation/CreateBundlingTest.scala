@@ -21,7 +21,7 @@ class CreateBundlingTest extends Simulation {
 		.exec(IDAMHelper.getIdamAuthCode)
 		.exec(S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
-	  	.repeat(3) {
+	  	.repeat(1) {
 				//exec(CreateBundle.postCreateBundleReq_30MB)
 				randomSwitch(
 					34d -> exec(CreateBundle.postCreateBundleReq_30Pages),
@@ -40,7 +40,7 @@ class CreateBundlingTest extends Simulation {
 	setUp(
 
 		createBundling_Scn.inject(
-			rampUsers(220) during (56 minutes))
+			rampUsers(660) during (60 minutes))
 	)
 		.protocols(httpProtocol)
 		.maxDuration(90 minutes)
