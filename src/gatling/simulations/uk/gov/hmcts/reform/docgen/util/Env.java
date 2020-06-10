@@ -15,8 +15,8 @@ public class Env {
         defaults.setProperty("OAUTH_CLIENT", "webshow");
         defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "https://em-show-perftest.service.core-compute-perftest.internal/oauth2/callback");
         //defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "https://em-show-aat.service.core-compute-aat.internal/oauth2/callback");
-        //defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "QfnbQkh2cvROJDe9tFE3WNfD4a0Q2w8Q");
-        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "evidence-management-show");
+        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "QfnbQkh2cvROJDe9tFE3WNfD4a0Q2w8Q");
+//        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "evidence-management-show");
         //defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal");
         defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-perftest.service.core-compute-perftest.internal");
         defaults.setProperty("FUNCTIONAL_TEST_CLIENT_S2S_TOKEN", "ZTUJMGDXR4ATXB4O");

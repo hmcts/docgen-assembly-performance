@@ -23,7 +23,7 @@ private val USERNAME = "perftestsample@mailinator.com"
 
   val getIdamAuthCode =
     exec(http("TX010_EM_Bundle_IdamAuthCode")
-      .post(Env.getIdamUrl+"/oauth2/authorize/?response_type=code&client_id="+ Env.getOAuthClient+"&redirect_uri=" + Env.getOAuthRedirect)
+      .post(Env.getIdamUrl+"/oauth2/authorize/?response_type=code&client_id="+ Env.getOAuthClient+"&redirect_uri=" + Env.getOAuthRedirect + "&scope=openid profile roles")
       .header("Content-Type", "application/x-www-form-urlencoded")
       .basicAuth(USERNAME,PASSWORD)
       .header("Content-Length", "0")
