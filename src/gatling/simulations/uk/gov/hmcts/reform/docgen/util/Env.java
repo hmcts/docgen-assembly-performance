@@ -10,19 +10,19 @@ public class Env {
     static {
         defaults.setProperty("PROXY", "false");
         defaults.setProperty("TEST_URL", "");
-        //defaults.setProperty("IDAM_API_BASE_URI", "https://idam-api.aat.platform.hmcts.net");
-        defaults.setProperty("IDAM_API_BASE_URI", "https://idam-api.perftest.platform.hmcts.net");
+        defaults.setProperty("IDAM_API_BASE_URI", "https://idam-api.aat.platform.hmcts.net");
+//        defaults.setProperty("IDAM_API_BASE_URI", "https://idam-api.perftest.platform.hmcts.net");
         defaults.setProperty("OAUTH_CLIENT", "webshow");
-        defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "https://em-show-perftest.service.core-compute-perftest.internal/oauth2/callback");
-        //defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "https://em-show-aat.service.core-compute-aat.internal/oauth2/callback");
+//        defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "https://em-show-perftest.service.core-compute-perftest.internal/oauth2/callback");
+        defaults.setProperty("IDAM_WEBSHOW_WHITELIST", "https://em-show-aat.service.core-compute-aat.internal/oauth2/callback");
         defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "QfnbQkh2cvROJDe9tFE3WNfD4a0Q2w8Q");
 //        defaults.setProperty("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", "evidence-management-show");
-        //defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal");
-        defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-perftest.service.core-compute-perftest.internal");
+        defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal");
+//        defaults.setProperty("S2S_BASE_URI", "http://rpe-service-auth-provider-perftest.service.core-compute-perftest.internal");
         defaults.setProperty("FUNCTIONAL_TEST_CLIENT_S2S_TOKEN", "ZTUJMGDXR4ATXB4O");
         //defaults.setProperty("FUNCTIONAL_TEST_CLIENT_S2S_TOKEN", "MHND2CEZ4KVRDNSF");
-        defaults.setProperty("DM_STORE_API_BASE_URI", "http://dm-store-perftest.service.core-compute-perftest.internal");
-
+//        defaults.setProperty("DM_STORE_API_BASE_URI", "http://dm-store-perftest.service.core-compute-perftest.internal");
+        defaults.setProperty("DM_STORE_API_BASE_URI", "http://dm-store-aat.service.core-compute-aat.internal");
         defaults.setProperty("S2S_SERVICE_NAME", "em_gw");
         //defaults.setProperty("S2S_SERVICE_NAME", "em_ccd_orchestrator");
 

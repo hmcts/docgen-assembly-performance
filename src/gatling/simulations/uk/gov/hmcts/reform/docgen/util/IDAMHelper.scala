@@ -9,13 +9,13 @@ object IDAMHelper {
   private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"*/
 // private val USERNAME = "james@swansea.gov.uk"
 //  private val PASSWORD = "Password123"
-private val USERNAME = "perftestsample@mailinator.com"
-  private val PASSWORD = "Pass19word"
+//private val USERNAME = "perftestsample@mailinator.com"
+//  private val PASSWORD = "Pass19word"
 // private val USERNAME = "emshowcase@hmcts.net"
  // private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
   // below are for aat
-/*private val USERNAME = "bundle-tester--518511189@gmail.com"
-  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"*/
+  private val USERNAME = "bundle-tester--518511189@gmail.com"
+  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
 
 
   val thinktime = Environment.thinkTime

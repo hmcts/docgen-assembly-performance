@@ -12,7 +12,7 @@ class CreateBundlingTest extends Simulation {
 
 
 	val httpProtocol = http
-		//.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
+		.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
 		.baseUrl(Environment.bundlingURL)
 
 
@@ -25,8 +25,8 @@ class CreateBundlingTest extends Simulation {
 				//exec(CreateBundle.postCreateBundleReq_30MB)
 				randomSwitch(
 					34d -> exec(CreateBundle.postCreateBundleReq_30Pages),
-					33d -> exec(CreateBundle.postCreateBundleReq_100Pages),
-					33d -> exec(CreateBundle.postCreateBundleReq_300Pages)
+//					33d -> exec(CreateBundle.postCreateBundleReq_100Pages),
+//					33d -> exec(CreateBundle.postCreateBundleReq_300Pages)
 				)
 					.pause(100)
 			}
@@ -40,10 +40,10 @@ class CreateBundlingTest extends Simulation {
 	setUp(
 
 		createBundling_Scn.inject(
-			rampUsers(660) during (60 minutes))
+			rampUsers(1) during (60 minutes))
 	)
 		.protocols(httpProtocol)
-		.maxDuration(90 minutes)
+		.maxDuration(2 minutes)
 
 
 }
