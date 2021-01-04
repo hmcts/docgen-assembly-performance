@@ -1,0 +1,142 @@
+{
+  "case_details": {
+    "id": "${caseid}",
+    "jurisdiction": "PUBLICLAW",
+    "state": "1_OPEN",
+    "case_type_id": "BUND_ASYNC_251203326",
+    "created_date":"2019-02-07T13:05:20.000",
+    "last_modified": "2019-05-07T13:05:20.000",
+    "security_classification": "PUBLIC",
+    "case_data": {
+      "bundleConfiguration": "f-tests-1-flat-docs.yaml",
+      "caseOwner": null,
+      "caseDocuments": [
+        {
+          "value": {
+            "documentName": "Case document",
+            "documentType": "appellantEvidence",
+            "documentLink": {
+              "document_url":"http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc1-id}",
+              "document_filename":"${doc1-name}",
+              "document_binary_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/${doc1-id}/binary"
+            }
+          }
+        },
+        {
+          "value": {
+            "documentName": "Case document",
+            "documentType": "appellantEvidence",
+            "documentLink": {
+              "document_url":"http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}",
+              "document_filename":"${doc2-name}",
+              "document_binary_url":"http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}/binary"
+            }
+          }
+        }
+      ],
+      "caseCreationDate": null,
+      "caseTitle": null,
+      "caseDescription": null,
+      "caseBundles": [],
+      "caseComments": null,
+      "caseDocument1Name": "aaa"
+    },
+    "data_classification": {
+      "caseOwner": "PUBLIC",
+      "caseDocument1": "PUBLIC",
+      "caseCreationDate": "PUBLIC",
+      "caseTitle": "PUBLIC",
+      "caseDescription": "PUBLIC",
+      "caseBundles": {
+        "classification": "PUBLIC",
+        "value": []
+      },
+      "caseComments": "PUBLIC",
+      "caseDocument1Name": "PUBLIC"
+    },
+    "after_submit_callback_response": null,
+    "callback_response_status_code": null,
+    "callback_response_status": null,
+    "delete_draft_response_status_code": null,
+    "delete_draft_response_status": null,
+    "security_classifications": {
+      "caseOwner": "PUBLIC",
+      "caseDocument1": "PUBLIC",
+      "caseCreationDate": "PUBLIC",
+      "caseTitle": "PUBLIC",
+      "caseDescription": "PUBLIC",
+      "caseBundles": {
+        "classification": "PUBLIC",
+        "value": []
+      },
+      "caseComments": "PUBLIC",
+      "caseDocument1Name": "PUBLIC"
+    }
+  },
+  "case_details_before": {
+    "id": "${caseid}",
+    "jurisdiction": "PUBLICLAW",
+    "state": "1_OPEN",
+    "case_type_id": "CCD_BUNDLE_MVP_TYPE_ASYNC_FERDI",
+    "created_date":"2019-02-07T13:05:20.000",
+    "last_modified": "2019-05-07T13:05:20.000",
+    "security_classification": "PUBLIC",
+    "case_data": {
+      "caseOwner": null,
+      "caseDocuments": [
+        {
+          "value": {
+            "documentName": "Case document",
+            "documentType": "appellantEvidence",
+            "documentLink": {
+              "document_url":"http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc1-id}",
+              "document_filename":"${doc1-name}",
+              "document_binary_url":"http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/${doc1-id}/binary"
+            }
+          }
+        },
+        {
+          "value": {
+            "documentName": "Case document",
+            "documentType": "appellantEvidence",
+            "documentLink": {
+              "document_url":"http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}",
+              "document_filename":"${doc2-name}",
+              "document_binary_url":"http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}/binary"
+            }
+          }
+        }
+      ],
+      "caseCreationDate": null,
+      "caseTitle": null,
+      "caseDescription": null,
+      "caseComments": null,
+      "caseDocument1Name": "aaa"
+    },
+    "data_classification": {
+      "caseOwner": "PUBLIC",
+      "caseDocument1": "PUBLIC",
+      "caseCreationDate": "PUBLIC",
+      "caseTitle": "PUBLIC",
+      "caseDescription": "PUBLIC",
+      "caseComments": "PUBLIC",
+      "caseDocument1Name": "PUBLIC"
+    },
+    "after_submit_callback_response": null,
+    "callback_response_status_code": null,
+    "callback_response_status": null,
+    "delete_draft_response_status_code": null,
+    "delete_draft_response_status": null,
+    "security_classifications": {
+      "caseOwner": "PUBLIC",
+      "caseDocument1": "PUBLIC",
+      "caseCreationDate": "PUBLIC",
+      "caseTitle": "PUBLIC",
+      "caseDescription": "PUBLIC",
+      "caseComments": "PUBLIC",
+      "caseDocument1Name": "PUBLIC"
+    }
+  },
+  "event_id": "createBundle",
+  "ignore_warning": null
+}

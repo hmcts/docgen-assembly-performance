@@ -1,0 +1,59 @@
+{
+  "data": {
+    "caseBundles": [
+      {
+        "value": {
+          "id": "${bundleId}",
+          "title": "Functional tests bundle 1",
+          "description": null,
+          "eligibleForStitching": "yes",
+          "eligibleForCloning": "no",
+          "stitchedDocument": null,
+          "documents": [
+            {
+              "value": {
+                "name": "Case document",
+                "description": null,
+                "sortIndex": 0,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc1-id}",
+                  "document_filename": "${doc1-name}",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/${doc1-id}/binary"
+                }
+              }
+            },
+            {
+              "value": {
+                "name": "Case document",
+                "description": null,
+                "sortIndex": 1,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}",
+                  "document_filename": "${doc2-name}",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}/binary"
+                }
+              }
+            }
+          ],
+          "folders": [],
+          "fileName": "bundle.pdf",
+          "coverpageTemplate": "",
+          "hasTableOfContents": "Yes",
+          "hasCoversheets": "Yes",
+          "hasFolderCoversheets": "Yes",
+          "stitchStatus": "NEW",
+          "paginationStyle": "topCenter",
+          "pageNumberFormat": "pageRange",
+          "stitchingFailureMessage": null
+        }
+      }
+    ]
+  },
+  "event": {
+    "id": "stitchBundle",
+    "summary": "",
+    "description": ""
+  },
+  "event_token": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4M2VtMG9uNWdxaTBnMHE1ZjBtdTl0YjJlMiIsInN1YiI6Ijc2YjhlZDNhLWNjNDYtNDA0Mi04OGU1LWZiNzllMjE5YzlhZSIsImlhdCI6MTU4MDMwNTExNiwiY2FzZS1pZCI6IjEwMjE1NTciLCJldmVudC1pZCI6InN0aXRjaEJ1bmRsZSIsImNhc2UtdHlwZS1pZCI6IkJVTkRfQVNZTkNfMTE0OTQ1MDc1NiIsImp1cmlzZGljdGlvbi1pZCI6IlBVQkxJQ0xBVyIsImNhc2Utc3RhdGUiOiIxX09QRU4iLCJjYXNlLXZlcnNpb24iOiJjY2RmMWRlYWZiNmQyMzc5NjlmMGQxMzhhNTIyMDk3Y2QwZjBlMjY5IiwiZW50aXR5LXZlcnNpb24iOjR9.ppUinTAZ0e8ze3zwuzpyedtdNNNTf5BqaQpes8ak590",
+  "ignore_warning": false
+}

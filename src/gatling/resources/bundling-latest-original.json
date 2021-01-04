@@ -1,0 +1,255 @@
+{
+  "data": {
+    "caseBundles": [
+      {
+        "id": "616b4a5a-2c48-497c-8b6c-c3a1e406b2e3",
+        "value": {
+          "id": "Perftest Bundle 2",
+          "title": null,
+          "description": null,
+          "eligibleForStitching": "Yes",
+          "eligibleForCloning": "No",
+          "documents": [
+            {
+              "id": "000a68db-271a-4702-97ce-7b7883f80871",
+              "value": {
+                "name": "Doc1",
+                "sortIndex": "0",
+                "description": null,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/0603f9a6-dcfb-407c-80d9-835cd1d936ff",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/0603f9a6-dcfb-407c-80d9-835cd1d936ff/binary",
+                  "document_filename": "RPE-ASEtoAKSmigration-050919-1128-6.pdf"
+                }
+              }
+            },
+            {
+              "id": "a480ed59-1b22-406e-a0ce-84cc6c615dde",
+              "value": {
+                "name": "Doc2",
+                "sortIndex": "0",
+                "description": null,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/68744542-9d38-43af-bd7a-fea4cdc6e042",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/68744542-9d38-43af-bd7a-fea4cdc6e042/binary",
+                  "document_filename": "RPE-HealthCheckendpoints-060919-1345-68.pdf"
+                }
+              }
+            }
+          ],
+          "folders": [],
+          "stitchStatus": null,
+          "stitchedDocument": {
+            "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/5a6e7567-7c8d-4ea9-b0a9-867177fdd459",
+            "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/5a6e7567-7c8d-4ea9-b0a9-867177fdd459/binary",
+            "document_filename": "stitched.pdf"
+          },
+          "hasCoversheets": "No",
+          "hasTableOfContents": "No",
+          "hasFolderCoversheets": "No",
+          "stitchingFailureMessage": null,
+          "fileName": null,
+          "paginationStyle": "bottomRight",
+          "coverpageTemplate": null,
+          "pageNumberFormat": "pageRange",
+          "enableEmailNotification": "No"
+        }
+      },
+      {
+        "id": "4a06bccd-1b8a-4e94-8109-daf5f049e78b",
+        "value": {
+          "id": "64dc23cb-e4c2-4886-8e07-987fed1d741f",
+          "title": "Functional tests bundle 1",
+          "description": null,
+          "eligibleForStitching": "No",
+          "eligibleForCloning": "No",
+          "documents": [],
+          "folders": [],
+          "stitchStatus": "DONE",
+          "stitchedDocument": {
+            "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/be599140-15dc-4f06-8467-aea06398fb81",
+            "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/be599140-15dc-4f06-8467-aea06398fb81/binary",
+            "document_filename": "bundle.pdf"
+          },
+          "hasCoversheets": "Yes",
+          "hasTableOfContents": "Yes",
+          "hasFolderCoversheets": "Yes",
+          "stitchingFailureMessage": null,
+          "fileName": "bundle.pdf",
+          "paginationStyle": "topCenter",
+          "coverpageTemplate": null,
+          "pageNumberFormat": "pageRange",
+          "enableEmailNotification": "No"
+        }
+      },
+      {
+        "id": "df3f8340-f4db-40bf-9436-e64bd2747f0f",
+        "value": {
+          "id": "f1b76bc4-9818-4fbb-b713-2bf02bf92c56",
+          "title": "Functional tests bundle 1",
+          "description": null,
+          "eligibleForStitching": "No",
+          "eligibleForCloning": "No",
+          "documents": [
+            {
+              "id": "729691d0-9387-4b91-b32c-498ec7556373",
+              "value": {
+                "name": "Doc11",
+                "sortIndex": "0",
+                "description": null,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/5595c95c-8fea-4cfd-8fac-59986f7a2b5b",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/5595c95c-8fea-4cfd-8fac-59986f7a2b5b/binary",
+                  "document_filename": "RPE-ASEtoAKSmigration-050919-1128-6.pdf"
+                }
+              }
+            },
+            {
+              "id": "ad64eec9-bcde-4758-b3f4-16a34b558874",
+              "value": {
+                "name": "Doc22",
+                "sortIndex": "1",
+                "description": null,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/22947d67-b681-465d-b7d3-5d4f64e46836",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/22947d67-b681-465d-b7d3-5d4f64e46836/binary",
+                  "document_filename": "RPE-HealthCheckendpoints-060919-1345-68.pdf"
+                }
+              }
+            }
+          ],
+          "folders": [],
+          "stitchStatus": "DONE",
+          "stitchedDocument": {
+            "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/b5e2c7a7-c4cb-4568-b313-f29a8126f04c",
+            "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/b5e2c7a7-c4cb-4568-b313-f29a8126f04c/binary",
+            "document_filename": "bundle.pdf"
+          },
+          "hasCoversheets": "Yes",
+          "hasTableOfContents": "Yes",
+          "hasFolderCoversheets": "Yes",
+          "stitchingFailureMessage": null,
+          "fileName": "bundle.pdf",
+          "paginationStyle": "topCenter",
+          "coverpageTemplate": null,
+          "pageNumberFormat": "pageRange",
+          "enableEmailNotification": "No"
+        }
+      },
+      {
+        "id": "81ffbe32-9ec2-4c65-9aaf-e729238e9891",
+        "value": {
+          "id": "e61b70d2-a7d7-41eb-af18-25261f20ce9a",
+          "title": "Functional tests bundle 1",
+          "description": null,
+          "eligibleForStitching": "No",
+          "eligibleForCloning": "No",
+          "documents": [
+            {
+              "id": "c8d16fa2-8b5e-4bf7-aad9-5f70ecbd9afb",
+              "value": {
+                "name": "Doc11",
+                "sortIndex": "0",
+                "description": null,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/5595c95c-8fea-4cfd-8fac-59986f7a2b5b",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/5595c95c-8fea-4cfd-8fac-59986f7a2b5b/binary",
+                  "document_filename": "RPE-ASEtoAKSmigration-050919-1128-6.pdf"
+                }
+              }
+            },
+            {
+              "id": "ac7e484f-8b19-4a12-94d1-938c1eb56b92",
+              "value": {
+                "name": "Doc22",
+                "sortIndex": "1",
+                "description": null,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/22947d67-b681-465d-b7d3-5d4f64e46836",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/22947d67-b681-465d-b7d3-5d4f64e46836/binary",
+                  "document_filename": "RPE-HealthCheckendpoints-060919-1345-68.pdf"
+                }
+              }
+            }
+          ],
+          "folders": [],
+          "stitchStatus": "DONE",
+          "stitchedDocument": {
+            "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/411b4124-e870-4d0d-91e9-1705bbdde042",
+            "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/411b4124-e870-4d0d-91e9-1705bbdde042/binary",
+            "document_filename": "bundle.pdf"
+          },
+          "hasCoversheets": "Yes",
+          "hasTableOfContents": "Yes",
+          "hasFolderCoversheets": "Yes",
+          "stitchingFailureMessage": null,
+          "fileName": "bundle.pdf",
+          "paginationStyle": "topCenter",
+          "coverpageTemplate": null,
+          "pageNumberFormat": "pageRange",
+          "enableEmailNotification": "No"
+        }
+      },
+      {
+        "id": "bb8952c9-8998-49cc-a625-a49797a0bad1",
+        "value": {
+          "id": "b445cc9b-19ab-449b-9f07-ed002e66a7b1",
+          "title": "Functional tests bundle 1",
+          "description": null,
+          "eligibleForStitching": "No",
+          "eligibleForCloning": "No",
+          "documents": [
+            {
+              "id": "7de55bd4-d0cc-4486-b4e9-df10ece37d07",
+              "value": {
+                "name": "Doc11",
+                "sortIndex": "0",
+                "description": null,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/5595c95c-8fea-4cfd-8fac-59986f7a2b5b",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/5595c95c-8fea-4cfd-8fac-59986f7a2b5b/binary",
+                  "document_filename": "RPE-ASEtoAKSmigration-050919-1128-6.pdf"
+                }
+              }
+            },
+            {
+              "id": "252d6990-a42e-4655-a7e5-5139bdf96f68",
+              "value": {
+                "name": "Doc22",
+                "sortIndex": "1",
+                "description": null,
+                "sourceDocument": {
+                  "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/22947d67-b681-465d-b7d3-5d4f64e46836",
+                  "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/22947d67-b681-465d-b7d3-5d4f64e46836/binary",
+                  "document_filename": "RPE-HealthCheckendpoints-060919-1345-68.pdf"
+                }
+              }
+            }
+          ],
+          "folders": [],
+          "stitchStatus": "DONE",
+          "stitchedDocument": {
+            "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/9942bf3e-f505-4988-9b27-5c97f59fa491",
+            "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/9942bf3e-f505-4988-9b27-5c97f59fa491/binary",
+            "document_filename": "bundle.pdf"
+          },
+          "hasCoversheets": "Yes",
+          "hasTableOfContents": "Yes",
+          "hasFolderCoversheets": "Yes",
+          "stitchingFailureMessage": null,
+          "fileName": "bundle.pdf",
+          "paginationStyle": "topCenter",
+          "coverpageTemplate": null,
+          "pageNumberFormat": "pageRange",
+          "enableEmailNotification": "No"
+        }
+      }
+    ]
+  },
+  "event": {
+    "id": "createBundle",
+    "summary": "",
+    "description": ""
+  },
+  "ignore_warning": false
+}
