@@ -38,7 +38,6 @@ class FullTest extends Simulation {
     .exec(IDAMHelper.getIdamAuthCode)
     .exec( S2SHelper.getOTP)
     .exec(S2SHelper.S2SAuthToken)
-  .exec(CreateAnnotationsSet.secret)
     .exec(CreateAnnotationsSet.annotationSet_create_small)
 
   //create annos and annosets
