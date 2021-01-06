@@ -35,7 +35,13 @@ object CreateAnnotationsSet {
 
   //val annotationsStructure = "{\"id\":\"92704e1b-9eea-4fb2-876e-5b5d960c9203\",\"documentId\":\"598f3514-b0d2-46ed-9c92-f345d3e2e817\"}"
 
-  val createAnnotationSetHttp = exec(http("Create annotation sets")
+ val secret = exec{
+      session =>
+        println("This is the secret: " + ${?FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET})
+        session
+    } 
+ 
+ val createAnnotationSetHttp = exec(http("Create annotation sets")
     .post("/api/annotation-sets/")
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
