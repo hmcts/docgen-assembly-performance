@@ -18,7 +18,7 @@ def component = "professional-api"
 
 def secrets = [
       'rpa-aat': [
-        secret('show-oauth2-token', 'FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET')
+        secret('how-oauth2-token', 'FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET')
       ],
       'rpa-aat': [
         secret('em-s2s-token', 'S2S_SECRET')
