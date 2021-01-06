@@ -12,7 +12,7 @@ properties([
 
 @Library("Infrastructure") 
 
-
+def type = "java"
 def product = "rpa"
 def component = "professional-api"
 
