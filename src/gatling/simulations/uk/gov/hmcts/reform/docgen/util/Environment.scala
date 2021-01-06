@@ -17,7 +17,7 @@ object Environment {
   val dmStoreURL = scala.util.Properties.envOrElse("dmStoreURL", "http://dm-store-aat.service.core-compute-aat.internal")
   val idamURL = scala.util.Properties.envOrElse("idamURL", "https://idam-api.aat.platform.hmcts.net")
   val idamClient = scala.util.Properties.envOrElse("idamClient", "webshow")
-  val idamSecret = scala.util.Properties.envOrElse("FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET", ConfigFactory.load.getString("auth.clientSecret"))
+  val idamSecret = scala.util.Properties.envOrElse("idamSecret", ConfigFactory.load.getString("auth.clientSecret"))
   val idamRedirectURL = scala.util.Properties.envOrElse("idamRedirectURL", "https://em-show-aat.service.core-compute-aat.internal/oauth2/callback")
   val s2sURL = scala.util.Properties.envOrElse("s2sURL", "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal")
   val s2sService = scala.util.Properties.envOrElse("s2sService", "em_gw")
