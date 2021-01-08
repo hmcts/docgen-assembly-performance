@@ -17,8 +17,8 @@ def product = "rpa"
 def component = "professional-api"
 
 def secrets = [
-      'rpa-aat': [
-        secret('show-oauth2-token', 'FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET')
+      'em-anno-aat': [
+        secret('microservicekey-em-annotation-app', 'FUNCTIONAL_TEST_CLIENT_OAUTH_SECRET')
       ],
       'rpa-aat': [
         secret('em-s2s-token', 'S2S_SECRET')
