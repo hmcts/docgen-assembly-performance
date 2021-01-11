@@ -81,10 +81,10 @@ class FullTest extends Simulation {
     }
 
   setUp(
-    createAnnotations_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolAnnotation),
-    createBundling_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolBundling),
-    DMStore_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolDMStore),
-    docAssembly_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolDocAssembly))
+    //createAnnotations_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolAnnotation),
+    createBundling_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolBundling))
+    //DMStore_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolDMStore),
+    //docAssembly_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolDocAssembly))
   //.maxDuration(90 minutes)
 
 
