@@ -77,7 +77,7 @@ class FullTest extends Simulation {
     .pause(1)
     .repeat(4) {
       exec(postUserHttp)
-        .pause(10)
+        .pause(20)
     }
 
   setUp(
