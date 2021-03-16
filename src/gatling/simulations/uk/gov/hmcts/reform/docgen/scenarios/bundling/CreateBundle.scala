@@ -45,5 +45,24 @@ object CreateBundle {
     .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL"))*/
   )
 
+  val singleBundle =
+    exec(http("TX040_EM_Bundle_SingleBundling")
+      .post("/api/new-bundle")
+      .header("Authorization", "Bearer ${accessToken}")
+      .header("ServiceAuthorization", "Bearer ${s2sToken}")
+      .header("Content-Type", "application/json")
+      .body(ElFileBody("single-new-bundle.json")).asJson
+      .check(status is 200)
+    )
+
+  val multiBundle =
+    exec(http("TX050_EM_Bundle_MultiBundling")
+      .post("/api/new-bundle")
+      .header("Authorization", "Bearer ${accessToken}")
+      .header("ServiceAuthorization", "Bearer ${s2sToken}")
+      .header("Content-Type", "application/json")
+      .body(ElFileBody("multi-new-bundle.json")).asJson
+      .check(status is 200)
+    )
 
 }
