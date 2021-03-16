@@ -22,18 +22,13 @@ class CreateBundlingTest extends Simulation {
 		.exec(S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
 		.repeat(1) {
-			//exec(CreateBundle.postCreateBundleReq_30MB)
-			randomSwitch(
-				//34d -> exec(CreateBundle.postCreateBundleReq_15MB),
-				//33d -> exec(CreateBundle.postCreateBundleReq_75MB),
-				//33d -> exec(CreateBundle.postCreateBundleReq_300MB)
-				50d -> exec(CreateBundle.singleBundle),
-				50d -> exec(CreateBundle.multiBundle)
-			)
-				.pause(10)
+		exec(CreateBundle.postCreateBundleReq_75MB)
+		.exec(CreateBundle.singleBundle)
+		.exec(CreateBundle.multiBundle)
 		}
+		.pause(10)
 
-  	//.exec(CreateBundle.postCreateBundleReq)
+	//.exec(CreateBundle.postCreateBundleReq)
 //		.pause(30)
 	//  	.exec(StitchBundle.postStitchBundle)
 

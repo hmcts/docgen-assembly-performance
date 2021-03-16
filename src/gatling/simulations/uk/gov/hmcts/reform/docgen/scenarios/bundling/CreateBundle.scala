@@ -26,7 +26,7 @@ object CreateBundle {
     .header("Authorization", "Bearer ${accessToken}")
     .header("ServiceAuthorization", "Bearer ${s2sToken}")
     .header("Content-Type", "application/json")
-    .body(ElFileBody("stitch-ccd-bundles.json")).asJson
+    .body(ElFileBody("create_bundle.json")).asJson
     .check(status is 200)
    /* .check(bodyString.saveAs("responseBody"))
     .check(jsonPath("$..caseBundles").saveAs("caseBundles"))
