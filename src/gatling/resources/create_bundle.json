@@ -1,62 +1,97 @@
 {
   "case_details": {
-    "id": 1573560369535701,
-    "jurisdiction": "PUBLICLAW",
-    "state": "1_OPEN",
-    "case_type_id": "CCD_BUNDLE_MVP_TYPE_ASYNC_FERDI",
-    "security_classification": "PUBLIC",
     "case_data": {
-      "caseOwner": null,
-      "bundleConfiguration": "example.yaml",
-      "caseDocument1": {
-        "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/8106451b-82d5-42eb-b673-5b2b39488a04",
-        "document_filename": "100_doc.docx",
-        "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/8106451b-82d5-42eb-b673-5b2b39488a04/binary"
-      },
-      "caseDocument2": {
-        "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/b64d2940-bac8-49f5-a109-ede72d8bfe38",
-        "document_filename": "300_pdf.pdf",
-        "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal:443/documents/b64d2940-bac8-49f5-a109-ede72d8bfe38/binary"
-      },
-      "caseCreationDate": null,
-      "caseTitle": null,
-      "caseDescription": null,
-      "caseBundles": [],
-      "caseComments": null,
-      "caseDocument1Name": "Perf Test Bundle 17th Feb 2020"
+      "benefitCode": "011",
+      "bundleConfiguration": "sscs-bundle-config.yaml",
+      "caseCode": "011CC",
+      "dateSentToDwp": "2021-02-12",
+      "dwpDocuments": [
+        {
+          "value": {
+            "documentDateAdded": "2021-02-12",
+            "documentFileName": "Appendix 12 received on 12-02-2021",
+            "documentLink": {
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91/binary",
+              "document_filename": "Appendix 12 received on 12-02-2021.pdf",
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91"
+            },
+            "documentType": "appendix12"
+          }
+        },
+        {
+          "value": {
+            "documentDateAdded": "2021-02-12",
+            "documentFileName": "DWP response received on 12-02-2021",
+            "documentLink": {
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91/binary",
+              "document_filename": "DWP response received on 12-02-2021.pdf",
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91"
+            },
+            "documentType": "dwpResponse",
+            "dwpEditedEvidenceReason": "phme",
+            "editedDocumentLink": {
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a/binary",
+              "document_filename": "DWP edited response received on 12-02-2021.pdf",
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a"
+            }
+          }
+        },
+        {
+          "value": {
+            "documentDateAdded": "2021-02-12",
+            "documentFileName": "DWP evidence received on 12-02-2021",
+            "documentLink": {
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a/binary",
+              "document_filename": "DWP evidence received on 12-02-2021.pdf",
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a"
+            },
+            "documentType": "dwpEvidenceBundle",
+            "dwpEditedEvidenceReason": "phme",
+            "editedDocumentLink": {
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91/binary",
+              "document_filename": "DWP edited evidence received on 12-02-2021.pdf",
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91"
+            }
+          }
+        }
+      ],
+      "sscsDocument": [
+        {
+          "value": {
+            "documentType": "appellantEvidence",
+            "documentFileName": "90000003.pdf",
+            "documentDateAdded": "2018-12-27",
+            "documentLink": {
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91",
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91/binary",
+              "document_filename": "90000003.pdf"
+            }
+          }
+        },
+        {
+          "value": {
+            "documentType": "sscs1",
+            "documentFileName": "90000002.pdf",
+            "documentDateAdded": "2018-12-07",
+            "documentLink": {
+              "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a",
+              "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a/binary",
+              "document_filename": "90000002.pdf"
+            }
+          }
+        }
+      ],
+      "audioVideoEvidenceBundleDocument": {
+        "documentFileName": "Audio-video-bundle-document.pdf",
+        "documentLink": {
+          "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a",
+          "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a/binary",
+          "document_filename": "Audio-video-bundle-document.pdf"
+        }
+      }
     },
-    "data_classification": {
-      "caseOwner": "PUBLIC",
-      "caseDocument1": "PUBLIC",
-      "caseCreationDate": "PUBLIC",
-      "caseTitle": "PUBLIC",
-      "caseDescription": "PUBLIC",
-      "caseBundles": {
-        "classification": "PUBLIC",
-        "value": []
-      },
-      "caseComments": "PUBLIC",
-      "caseDocument1Name": "PUBLIC"
-    },
-    "after_submit_callback_response": null,
-    "callback_response_status_code": null,
-    "callback_response_status": null,
-    "delete_draft_response_status_code": null,
-    "delete_draft_response_status": null,
-    "security_classifications": {
-      "caseOwner": "PUBLIC",
-      "caseDocument1": "PUBLIC",
-      "caseCreationDate": "PUBLIC",
-      "caseTitle": "PUBLIC",
-      "caseDescription": "PUBLIC",
-      "caseBundles": {
-        "classification": "PUBLIC",
-        "value": []
-      },
-      "caseComments": "PUBLIC",
-      "caseDocument1Name": "PUBLIC"
-    }
-  },
-  "event_id": "createBundle",
-  "ignore_warning": null
+    "case_type_id": "Benefit",
+    "created_date": "2021-02-16T12:03:14.091303",
+    "id": 1615832653753609
+  }
 }
