@@ -45,15 +45,5 @@ object CreateBundle {
     .check(jsonPath("$..stitchedDocument.document_url").saveAs("stitchedDocumentURL"))*/
   )
 
-  val multiBundle =
-    exec(http("TX040_EM_Bundle_MultiBundling")
-      .post("/api/new-bundle")
-      .header("Authorization", "Bearer ${accessToken}")
-      .header("ServiceAuthorization", "Bearer ${s2sToken}")
-      .header("Content-Type", "application/json")
-      .body(ElFileBody("multi-bundle.json")).asJson
-      .check(status is 200)
-    )
-
 
 }
