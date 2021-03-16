@@ -21,15 +21,16 @@ class CreateBundlingTest extends Simulation {
 		.exec(IDAMHelper.getIdamAuthCode)
 		.exec(S2SHelper.getOTP)
 		.exec(S2SHelper.S2SAuthToken)
-	  	.repeat(1) {
-				//exec(CreateBundle.postCreateBundleReq_30MB)
-				randomSwitch(
-					34d -> exec(CreateBundle.postCreateBundleReq_15MB),
-					33d -> exec(CreateBundle.postCreateBundleReq_75MB),
-					33d -> exec(CreateBundle.postCreateBundleReq_300MB)
-				)
-					.pause(10)
-			}
+		.repeat(1) {
+			//exec(CreateBundle.postCreateBundleReq_30MB)
+			randomSwitch(
+				//34d -> exec(CreateBundle.postCreateBundleReq_15MB),
+				//33d -> exec(CreateBundle.postCreateBundleReq_75MB),
+				//33d -> exec(CreateBundle.postCreateBundleReq_300MB)
+				100d -> exec(CreateBundle.multiBundle)
+			)
+				.pause(10)
+		}
 
   	//.exec(CreateBundle.postCreateBundleReq)
 //		.pause(30)
@@ -43,7 +44,7 @@ class CreateBundlingTest extends Simulation {
 			rampUsers(10) during (300))
 	)
 		.protocols(httpProtocol)
-		//.maxDuration(90 minutes)
+		.assertions(global.successfulRequests.percent.is(100))
 
 
 }

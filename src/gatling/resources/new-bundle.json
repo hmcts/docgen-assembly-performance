@@ -1,0 +1,51 @@
+{
+  "case_details": {
+    "case_data": {
+      "caseBundles": [
+        {
+          "value": {
+            "id": "585c4651-16a7-48c7-bad1-a45e4fe09f8e",
+            "title": "Bundle title",
+            "description": "Test bundle",
+            "eligibleForStitching": "yes",
+            "eligibleForCloning": "no",
+            "documents": [
+              {
+                "value": {
+                  "name": "Case document1",
+                  "description": "description",
+                  "sourceDocument": {
+                    "document_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91",
+                    "document_filename": "2MB.pdf",
+                    "document_binary_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/42502511-62e6-49d5-9727-a34dfbd98c91/binary"
+                  }
+                }
+              },
+              {
+                "value": {
+                  "name": "Case document2",
+                  "description": "description",
+                  "sourceDocument": {
+                    "document_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a",
+                    "document_filename": "Sscsjreou_77A.pdf",
+                    "document_binary_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a/binary"
+                  }
+                }
+              }
+            ],
+            "folders": [],
+            "fileName": "fileName",
+            "coverpageTemplate": null,
+            "hasTableOfContents": "Yes",
+            "hasCoversheets": "Yes",
+            "hasFolderCoversheets": null,
+            "stitchStatus": "",
+            "paginationStyle": "off",
+            "pageNumberFormat": "numberOfPages",
+            "stitchingFailureMessage": null
+          }
+        }
+      ]
+    }
+  }
+}

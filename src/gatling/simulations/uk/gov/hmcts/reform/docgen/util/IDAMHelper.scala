@@ -5,8 +5,8 @@ import simulations.uk.gov.hmcts.reform.docgen.util.Environment._
 
 object IDAMHelper {
 
- /* private val USERNAME = "testytesttest@test.net"
-  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"*/
+ private val USERNAME = "testytesttest@test.net"
+  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
 // private val USERNAME = "james@swansea.gov.uk"
 //  private val PASSWORD = "Password123"
 //private val USERNAME = "perftestsample@mailinator.com"
@@ -14,8 +14,8 @@ object IDAMHelper {
 // private val USERNAME = "emshowcase@hmcts.net"
  // private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
   // below are for aat
-private val USERNAME = "bundle-tester--518511189@gmail.com"
-  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
+//private val USERNAME = "bundle-tester--518511189@gmail.com"
+  //private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
  /*private val USERNAME = "fplaatorg-j0jls-su@mailinator.com"
   private val PASSWORD = "Pass19word"*/
 
