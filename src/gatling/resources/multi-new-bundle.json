@@ -89,9 +89,11 @@
         }
       ],
       "audioVideoEvidenceBundleDocument": {
-        "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a",
-        "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a/binary",
-        "document_filename": "Audio-video-bundle-document.pdf"
+        "documentLink": {
+          "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a",
+          "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/ae29bc56-7a46-483d-9daf-9c0baede235a/binary",
+          "document_filename": "Audio-video-bundle-document.pdf"
+        }
       }
     },
     "case_type_id": "Benefit",
