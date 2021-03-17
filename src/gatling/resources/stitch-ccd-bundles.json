@@ -15,9 +15,9 @@
                   "name": "Case document1",
                   "description": "description",
                   "sourceDocument": {
-                    "document_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/${doc1-id}",
+                    "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc1-id}",
                     "document_filename": "${doc1-name}",
-                    "document_binary_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/${doc1-id}/binary"
+                    "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc1-id}/binary"
                   }
                 }
               },
@@ -26,9 +26,9 @@
                   "name": "Case document2",
                   "description": "description",
                   "sourceDocument": {
-                    "document_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/${doc2-id}",
+                    "document_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}",
                     "document_filename": "${doc2-name}",
-                    "document_binary_url": "http://dm-store-aat.service.core-compute-aat.internal/documents/${doc2-id}/binary"
+                    "document_binary_url": "http://dm-store-perftest.service.core-compute-perftest.internal/documents/${doc2-id}/binary"
                   }
                 }
               }

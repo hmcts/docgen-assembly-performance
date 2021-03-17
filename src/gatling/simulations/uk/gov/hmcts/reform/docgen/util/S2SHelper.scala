@@ -19,7 +19,7 @@ object  S2SHelper {
 
   val S2SAuthToken =
 
-    exec(http("TX030_EM_Bundle_S2S Token")
+    exec(http("EM_030_S2SToken")
       .post(s2sURL + "/lease")
       .header("Content-Type", "application/json")
       .body(StringBody(

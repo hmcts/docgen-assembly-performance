@@ -20,7 +20,7 @@ object IDAMHelper {
   private val PASSWORD = "Pass19word"*/
 
   val getIdamAuthCode =
-    exec(http("TX010_EM_Bundle_IdamAuthCode")
+    exec(http("EM_010_IdamAuthCode")
       .post(idamURL + "/oauth2/authorize/?response_type=code&client_id=" + idamClient + "&redirect_uri=" + idamRedirectURL + "&scope=openid profile roles")
       .header("Content-Type", "application/x-www-form-urlencoded")
       .basicAuth(USERNAME,PASSWORD)
@@ -30,7 +30,7 @@ object IDAMHelper {
       .pause(2)//original value is 50
 
       .doIf(session => session.contains("serviceauthcode")) {
-        exec(http("TX020_EM_Bundle_Oauth2Token")
+        exec(http("EM_020_Oauth2Token")
           .post(idamURL + "/oauth2/token?grant_type=authorization_code&code=" + "${serviceauthcode}" + "&client_id=" + idamClient + "&redirect_uri=" + idamRedirectURL + "&client_secret=" + idamSecret)
           .header("Content-Type", "application/x-www-form-urlencoded")
           .header("Content-Length", "0")
