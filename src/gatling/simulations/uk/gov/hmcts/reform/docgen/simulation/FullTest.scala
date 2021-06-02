@@ -18,7 +18,7 @@ class FullTest extends Simulation {
   val dataFeeder= csv("feeder_large_reader.csv").circular
 
   val httpProtocolAnnotation = http
-    .proxy(Proxy("proxyout.reform.hmcts.net", 8080))
+    //.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
     .baseUrl(Environment.annotationURL)
 
   val httpProtocolBundling = http
@@ -30,7 +30,7 @@ class FullTest extends Simulation {
     .baseUrl(Environment.dmStoreURL)
 
   val httpProtocolDocAssembly = http
-    .proxy(Proxy("proxyout.reform.hmcts.net", 8080))
+    //.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
     .baseUrl(Environment.baseURL)
     .headers(Headers.commonHeader)
 
@@ -85,7 +85,7 @@ class FullTest extends Simulation {
     createBundling_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolBundling),
     DMStore_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolDMStore),
     docAssembly_Scn.inject(rampUsers(10) during (300)).protocols(httpProtocolDocAssembly))
-  //.maxDuration(90 minutes)
+    .assertions(global.successfulRequests.percent.gte(95))
 
 
 }

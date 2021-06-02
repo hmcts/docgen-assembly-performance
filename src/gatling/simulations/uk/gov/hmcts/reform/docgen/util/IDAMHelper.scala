@@ -14,10 +14,10 @@ object IDAMHelper {
 // private val USERNAME = "emshowcase@hmcts.net"
  // private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
   // below are for aat
-private val USERNAME = "bundle-tester--518511189@gmail.com"
-  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"
- /*private val USERNAME = "fplaatorg-j0jls-su@mailinator.com"
-  private val PASSWORD = "Pass19word"*/
+/*private val USERNAME = "bundle-tester--518511189@gmail.com"
+  private val PASSWORD = "4590fgvhbfgbDdffm3lk4j"*/
+ private val USERNAME = "hrs.tester@hmcts.net"
+  private val PASSWORD = "passwOrd01hrs"
 
   val getIdamAuthCode =
     exec(http("TX010_EM_Bundle_IdamAuthCode")
