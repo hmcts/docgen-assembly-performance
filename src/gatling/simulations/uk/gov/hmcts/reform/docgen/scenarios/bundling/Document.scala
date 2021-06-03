@@ -12,9 +12,6 @@ object Document {
     "mp3" -> "audio/mpeg",
   )
 
-  val documentsFeeder = Iterator.continually(Map("document_file" -> "750_pdf.pdf"))
-
-
   var uploadedDocuments = new ListBuffer[String]()
 
   val uploadedDocumentsFeeder = Iterator.continually(Map("document_id" -> uploadedDocuments(Random.nextInt(uploadedDocuments.length))))

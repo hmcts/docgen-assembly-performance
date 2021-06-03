@@ -5,9 +5,8 @@ import simulations.uk.gov.hmcts.reform.docgen.util.Environment._
 
 object UploadDoc{
 
-  val postDocument = feed(Document.documentsFeeder).exec(session => {
-    session.set("upload_type", "standard").set("feeder", Document.documentsFeeder)})
-    .exec(
+  val postDocument =
+    exec(
       http("Upload document ${upload_type}")
         .post("/documents")
         .headers(Map(

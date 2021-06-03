@@ -9,9 +9,8 @@ object DMStore {
 
   //Post a document
 
-  val postDMStore_5MB = feed(Document.documentsFeeder).exec(session => {
-    session.set("upload_type", "standard").set("feeder", Document.documentsFeeder)})
-    .exec(
+  val postDMStore_5MB =
+    exec(
       http("TX040_EM_PostDMStore_5MB")
         .post("/documents")
         .headers(Map(
@@ -25,9 +24,8 @@ object DMStore {
         .formParam("classification", "PUBLIC")
         .check(status is 200, jsonPath("$._embedded.documents[0]._links.self.href").saveAs("fileUrl1")))
 
-  val postDMStore_10MB = feed(Document.documentsFeeder).exec(session => {
-    session.set("upload_type", "standard").set("feeder", Document.documentsFeeder)})
-    .exec(
+  val postDMStore_10MB =
+    exec(
       http("TX040_EM_PostDMStore_10MB")
         .post("/documents")
         .headers(Map(
@@ -41,9 +39,8 @@ object DMStore {
         .formParam("classification", "PUBLIC")
         .check(status is 200, jsonPath("$._embedded.documents[0]._links.self.href").saveAs("fileUrl2")))
 
-  val postDMStore_25MB = feed(Document.documentsFeeder).exec(session => {
-    session.set("upload_type", "standard").set("feeder", Document.documentsFeeder)})
-    .exec(
+  val postDMStore_25MB =
+    exec(
       http("TX040_EM_PostDMStore_25MB")
         .post("/documents")
         .headers(Map(
@@ -57,9 +54,8 @@ object DMStore {
         .formParam("classification", "PUBLIC")
         .check(status is 200, jsonPath("$._embedded.documents[0]._links.self.href").saveAs("fileUrl3")))
 
-  val postDMStore_50MB = feed(Document.documentsFeeder).exec(session => {
-    session.set("upload_type", "standard").set("feeder", Document.documentsFeeder)})
-    .exec(
+  val postDMStore_50MB =
+    exec(
       http("TX040_EM_PostDMStore_50MB")
         .post("/documents")
         .headers(Map(
@@ -73,9 +69,8 @@ object DMStore {
         .formParam("classification", "PUBLIC")
         .check(status is 200, jsonPath("$._embedded.documents[0]._links.self.href").saveAs("fileUrl4")))
 
-  val postDMStore_100MB = feed(Document.documentsFeeder).exec(session => {
-    session.set("upload_type", "standard").set("feeder", Document.documentsFeeder)})
-    .exec(
+  val postDMStore_100MB =
+    exec(
       http("TX040_EM_PostDMStore_100MB")
         .post("/documents")
         .headers(Map(
@@ -89,9 +84,8 @@ object DMStore {
         .formParam("classification", "PUBLIC")
         .check(status is 200, jsonPath("$._embedded.documents[0]._links.self.href").saveAs("fileUrl5")))
 
-  val postDMStore_200MB = feed(Document.documentsFeeder).exec(session => {
-    session.set("upload_type", "standard").set("feeder", Document.documentsFeeder)})
-    .exec(
+  val postDMStore_200MB =
+    exec(
       http("TX040_EM_PostDMStore_200MB")
         .post("/documents")
         .headers(Map(
@@ -114,9 +108,6 @@ object DMStore {
     "ServiceAuthorization" -> "Bearer ${s2sToken}",
     "user-id" -> "auto.test.cnp@gmail.com",
   ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -126,9 +117,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -138,9 +126,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -150,9 +135,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -162,9 +144,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -174,9 +153,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -188,9 +164,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -200,9 +173,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -212,9 +182,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -224,9 +191,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -236,9 +200,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
@@ -248,9 +209,6 @@ object DMStore {
       "ServiceAuthorization" -> "Bearer ${s2sToken}",
       "user-id" -> "auto.test.cnp@gmail.com",
     ))
-    //.header("Authorization", "Bearer ${accessToken}")
-    //.header("ServiceAuthorization", "Bearer ${s2sToken}")
-    // .header("ServiceAuthorization", "Bearer ${jwt}")
     .header("Content-Type", "application/json")
     .check(status is 200)
 
