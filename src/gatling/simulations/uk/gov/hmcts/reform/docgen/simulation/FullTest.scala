@@ -16,6 +16,7 @@ import scala.concurrent.duration._
 class FullTest extends Simulation {
 
   val dataFeeder= csv("feeder_large_reader.csv").circular
+  val idamUserFeeder = csv("idam_users.csv").circular
 
   val httpProtocolAnnotation = http
     //.proxy(Proxy("proxyout.reform.hmcts.net", 8080))
@@ -35,6 +36,7 @@ class FullTest extends Simulation {
     .headers(Headers.commonHeader)
 
   val createAnnotations_Scn = scenario("Annotations")
+    .feed(idamUserFeeder)
     .exec(IDAMHelper.getIdamAuthCode)
     .exec( S2SHelper.getOTP)
     .exec(S2SHelper.S2SAuthToken)
@@ -42,11 +44,11 @@ class FullTest extends Simulation {
 
   //create annos and annosets
   val createBundling_Scn = scenario("Bundling")
+    .feed(idamUserFeeder)
     .exec(IDAMHelper.getIdamAuthCode)
     .exec(S2SHelper.getOTP)
     .exec(S2SHelper.S2SAuthToken)
     .repeat(1) {
-      //exec(CreateBundle.postCreateBundleReq_30MB)
       randomSwitch(
         //34d -> exec(CreateBundle.postCreateBundleReq_15MB),
         100d -> exec(CreateBundle.postCreateBundleReq_75MB)
@@ -56,7 +58,6 @@ class FullTest extends Simulation {
     }
 
   val DMStore_Scn = scenario("DM Store")
-    //.exec(IDAMHelper.getIdamAuthCode)
     .exec(S2SHelper.getOTP)
     .exec(S2SHelper.S2SAuthToken)
     .randomSwitch(
@@ -70,11 +71,10 @@ class FullTest extends Simulation {
     .pause(10)
 
   val docAssembly_Scn = scenario("Doc assembly")
+    .feed(idamUserFeeder)
     .exec(IDAMHelper.getIdamAuthCode)
     .exec( S2SHelper.getOTP)
     .exec(S2SHelper.S2SAuthToken)
-    //.exec(getUserHttp)
-    .pause(1)
     .repeat(4) {
       exec(postUserHttp)
         .pause(10)
